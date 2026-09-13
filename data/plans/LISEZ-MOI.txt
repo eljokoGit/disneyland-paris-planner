@@ -1,0 +1,45 @@
+PLANS OFFICIELS DES PARCS
+=========================
+
+Déposez ici votre copie du plan. Le CHIFFRE EST LE NUMÉRO DE JOURNÉE, pas
+l'ordre des parcs — attention, c'est le piège :
+
+    jour1.*   Disney Adventure World   (jeudi 3 septembre)
+    jour2.*   Parc Disneyland          (vendredi 4 septembre)
+
+Extensions acceptées : .jpg .jpeg .png .webp .pdf
+
+L'application le détecte toute seule, sans redémarrage.
+
+CE QUI S'AFFICHE ALORS
+----------------------
+Le bouton « Où est-ce ? » d'une étape ouvre deux onglets :
+
+  · Plan officiel      votre image, affichée en grand, défilable et zoomable
+  · Schéma — où on est le schéma des lands, zone actuelle en jaune
+
+Pour une IMAGE (jpg, png, webp) : le plan s'affiche directement dans l'app.
+Pour un PDF : un bouton l'ouvre dans un onglet, sans affichage intégré.
+
+POSER UN REPÈRE SUR VOTRE PLAN
+------------------------------
+Une fois l'image déposée, l'app peut y placer un point « vous êtes ici ».
+Il faut pour cela calibrer une position par zone, dans data/plan.json :
+
+    "zones": [
+      { "id": "frozen", "nom": "World of Frozen", ...,
+        "pin": { "x": 48, "y": 22 } }
+    ]
+
+x et y sont des POURCENTAGES de la largeur et de la hauteur de votre image,
+depuis le coin haut-gauche. Sans "pin", aucun repère n'est dessiné et le plan
+reste consultable normalement.
+
+Demandez à Claude de le faire : une fois le fichier ici, il peut le regarder
+et renseigner les 8 zones du parc.
+
+DROITS
+------
+Les plans officiels Disney sont sous droits d'auteur. Ce dossier est prévu
+pour VOTRE copie, à votre usage personnel. Rien n'est téléchargé ni distribué
+par l'application.

@@ -1,0 +1,2662 @@
+{
+ "version": 1,
+ "genere": "2026-08-30",
+ "source": "Disneyland-Paris-plan-2-jours_18.xlsx",
+ "voyage": {
+  "titre": "Disneyland Paris — 2 jours",
+  "groupe": "Un parent, l'autre parent, les grands-parents et leur fille (5 ans)",
+  "profil": "Pas de sensations fortes. Priorités : Frozen, princesses, spectacles. Elle passe les seuils 81 cm / 1,02 m / 1,07 m ; seuls 1,20 m et 1,40 m lui sont fermés. Le filtre du plan est son goût, pas sa taille.",
+  "personnes": 5
+ },
+ "parametres": [
+  {
+   "id": "j1_ouverture",
+   "numero": 1,
+   "jour": 1,
+   "libelle": "Jour 1 — ouverture du parc",
+   "valeur": "09:30",
+   "nature": "confirme",
+   "commentaire": "Confirmé : du 1er au 6 septembre 2026, ouverture 09:30, fermeture 22:00. Les grilles ouvrent ~45 min avant, d'où l'arrivée à 08:45.",
+   "type": "ouverture"
+  },
+  {
+   "id": "j1_cascade",
+   "numero": 2,
+   "jour": 1,
+   "libelle": "Jour 1 — Disney Cascade of Lights",
+   "valeur": "21:50",
+   "nature": "releve",
+   "commentaire": "Relevé dans l'appli : 21h50, une seule fois. Se cale sur la fermeture du parc (22:00).",
+   "type": "seance",
+   "seances": [
+    "21:50"
+   ],
+   "note": "Une seule représentation, calée sur la fermeture du parc."
+  },
+  {
+   "id": "j1_rencontre_royale",
+   "numero": 6,
+   "jour": 1,
+   "libelle": "Jour 1 — créneau Rencontre Royale Elsa & Anna",
+   "valeur": "11:47",
+   "nature": "releve",
+   "commentaire": "HYPOTHÈSE calée pour s'enchaîner après Frozen Ever After. File virtuelle gratuite, jour même uniquement. Remplacer par le vrai créneau dès qu'il est obtenu.",
+   "type": "creneau",
+   "note": "File virtuelle : on peut retenter une vague pour obtenir un autre créneau (9h45, 14h00).",
+   "obtenu": true
+  },
+  {
+   "id": "j1_arendelle",
+   "numero": 8,
+   "jour": 1,
+   "libelle": "Jour 1 — séance Célébration à Arendelle",
+   "valeur": "16:50",
+   "nature": "releve",
+   "commentaire": "Relevé : 12h20, 13h20, 15h50, 16h50, 17h50.",
+   "type": "seance",
+   "seances": [
+    "12:20",
+    "13:20",
+    "15:50",
+    "16:50",
+    "17:50"
+   ]
+  },
+  {
+   "id": "j1_mickey_magicien",
+   "numero": 9,
+   "jour": 1,
+   "libelle": "Jour 1 — séance Mickey et le Magicien",
+   "valeur": "18:30",
+   "nature": "releve",
+   "commentaire": "Relevé : 13h00, 14h05, 15h10, 17h25, 18h30. Le plan prend 17h25 car 15h10 tombe pile sur la Cavalcade. Si 17h25 n'existe pas, la suivante est 18h30.",
+   "type": "seance",
+   "seances": [
+    "13:00",
+    "14:05",
+    "15:10",
+    "17:25",
+    "18:30"
+   ]
+  },
+  {
+   "id": "j1_cavalcade",
+   "numero": 10,
+   "jour": 1,
+   "libelle": "Jour 1 — passage Cavalcade des Princesses",
+   "valeur": "13:50",
+   "nature": "releve",
+   "commentaire": "Relevé : 10h00, 11h25, 13h50, 15h10. AUCUN passage après 15h10 : c'est la contrainte la plus dure du jour 1.",
+   "type": "seance",
+   "seances": [
+    "10:00",
+    "11:25",
+    "13:50",
+    "15:10"
+   ],
+   "note": "Aucun passage après 15h10 : c'est la contrainte la plus dure du jour 1."
+  },
+  {
+   "id": "j1_woody",
+   "numero": 14,
+   "jour": 1,
+   "libelle": "Jour 1 — séance Rencontre Woody (Toy Story)",
+   "valeur": "09:30",
+   "nature": "releve",
+   "type": "seance",
+   "commentaire": "Meet Woody n'a NI file virtuelle NI temps d'attente : c'est un Character Spotlight à séances fixes, on se présente à l'heure. Les deux vagues de réservation qui existaient ici ne réservaient rien et ont été supprimées le 1er septembre 2026.",
+   "note": "Séances fixes. Rien à réserver : il faut être là à l'heure.",
+   "seances": [
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "12:20",
+    "12:50",
+    "13:20",
+    "13:50"
+   ],
+   "seancesRelevees": {
+    "date": "2026-09-01",
+    "source": "ThemeParks.wiki, externalId P2MG15",
+    "heures": [
+     "08:30",
+     "09:00",
+     "09:30",
+     "10:00",
+     "12:20",
+     "12:50",
+     "13:20",
+     "13:50"
+    ],
+    "reserve": "Relevé daté du 31/08 au soir : la liste peut être incomplète. L'Excel annonce une ouverture 12h30–19h30, ce qui contredit une dernière séance à 13h50. À confirmer avant de déplacer l'étape."
+   }
+  },
+  {
+   "id": "pa_j1-e2",
+   "libelle": "Retour Premier Access Frozen Ever After",
+   "valeur": "10:15",
+   "nature": "releve",
+   "seances": [
+    "10:15"
+   ],
+   "note": "Fenêtre de retour du pass : 10h10-11h10. On vise 10h15, l heure d arrivée réelle ; il reste 55 min de marge dans la fenêtre."
+  },
+  {
+   "id": "j1_spider",
+   "type": "heure",
+   "libelle": "Jour 1 — créneau Spider-Man Heroic Encounter",
+   "valeur": "14:56",
+   "note": "Créneau de file virtuelle obtenu sur place.",
+   "obtenu": true
+  },
+  {
+   "id": "j2_ouverture",
+   "numero": 3,
+   "jour": 2,
+   "libelle": "Jour 2 — ouverture du parc",
+   "valeur": "09:30",
+   "nature": "confirme",
+   "commentaire": "Confirmé, même période.",
+   "type": "ouverture"
+  },
+  {
+   "id": "j2_parade",
+   "numero": 4,
+   "jour": 2,
+   "libelle": "Jour 2 — parade Disney Stars on Parade",
+   "valeur": "11:30",
+   "nature": "releve",
+   "commentaire": "Relevé dans l'appli : 11h30, UNE SEULE fois, le MATIN. Toute la journée 2 est bâtie autour.",
+   "type": "seance",
+   "seances": [
+    "11:30"
+   ],
+   "note": "Une seule parade, le matin. Toute la journée 2 est bâtie autour."
+  },
+  {
+   "id": "j2_tales",
+   "numero": 5,
+   "jour": 2,
+   "libelle": "Jour 2 — Disney Tales of Magic",
+   "valeur": "22:00",
+   "nature": "non-utilise",
+   "commentaire": "NON UTILISÉ : départ volontaire à 20h00. Version réduite jusqu'à fin septembre, sans drones ni fontaines. Conservé si vous changez d'avis.",
+   "type": "seance",
+   "seances": [
+    "22:00"
+   ]
+  },
+  {
+   "id": "j2_pavillon_princesses",
+   "numero": 7,
+   "jour": 2,
+   "libelle": "Jour 2 — créneau Pavillon des Princesses",
+   "valeur": "10:30",
+   "nature": "hypothese",
+   "commentaire": "HYPOTHÈSE calée sur la vague du matin. File virtuelle gratuite, jour même uniquement. Remplacer par le vrai créneau.",
+   "type": "creneau",
+   "note": "File virtuelle : deuxième vague en début d'après-midi.",
+   "obtenu": true
+  },
+  {
+   "id": "j2_valse_royale",
+   "numero": 11,
+   "jour": 2,
+   "libelle": "Jour 2 — séance La Valse Royale",
+   "valeur": "14:55",
+   "nature": "releve",
+   "commentaire": "Relevé : 14h55, 16h10, 16h45. 16h45 pour faire entrer it's a small world avant.",
+   "type": "seance",
+   "seances": [
+    "14:55",
+    "16:10",
+    "16:45"
+   ]
+  },
+  {
+   "id": "j2_roi_lion",
+   "numero": 12,
+   "jour": 2,
+   "libelle": "Jour 2 — séance Le Roi Lion",
+   "valeur": "16:05",
+   "nature": "releve",
+   "commentaire": "Relevé : 12h30, 13h30, 16h05, 17h05. 13h30 est la seule séance qui libère tout l'après-midi.",
+   "type": "seance",
+   "seances": [
+    "12:30",
+    "13:30",
+    "16:05",
+    "17:05"
+   ]
+  },
+  {
+   "id": "j2_philharmagique",
+   "numero": 13,
+   "jour": 2,
+   "libelle": "Jour 2 — séance PhilharMagique",
+   "valeur": "17:00",
+   "nature": "releve",
+   "commentaire": "RÉSOLU le 1er septembre 2026 : la liste n'était pas tronquée. Séances toutes les 30 min de 12h30 à 17h30, et 17h30 est bien la dernière — l'horaire d'ouverture de l'attraction le confirme, elle ferme à 17h30. Le collecteur archive désormais les séances chaque jour : le calendrier de vendredi sera connu jeudi soir, sans vérification à faire sur place.",
+   "type": "seance",
+   "seances": [
+    "12:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30"
+   ],
+   "note": "Dernière séance 17h30. L'attraction ferme à cette heure-là."
+  },
+  {
+   "id": "j2_mysterious",
+   "type": "heure",
+   "libelle": "Jour 2 — séance Mysterious Meeting (Phantom Manor)",
+   "valeur": "13:30",
+   "seances": [
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "12:00",
+    "12:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30"
+   ]
+  }
+ ],
+ "jours": [
+  {
+   "numero": 1,
+   "date": "2026-09-03",
+   "libelle": "Jeudi 3 septembre 2026",
+   "parc": "Disney Adventure World",
+   "sousTitre": "le parc Frozen",
+   "ouverture": "09:30",
+   "fermeture": "22:00",
+   "etapes": [
+    {
+     "id": "j1-e1",
+     "numero": 1,
+     "actif": true,
+     "type": "arrivee",
+     "titre": "Arrivée aux tourniquets + files virtuelles",
+     "lieu": "Entrée / World Premiere Plaza",
+     "duree": 45,
+     "ancre": {
+      "parametre": "j1_ouverture",
+      "avance": 45
+     },
+     "note": "Billets déjà enregistrés dans l'appli. UNE SEULE personne dédiée ouvre la file virtuelle Rencontre Royale. Vagues : 8h45 (géolocalisation dans le parc requise), 9h45, 14h00. Les grilles ouvrent 30 à 45 min avant l'heure officielle.",
+     "avertissements": [],
+     "zone": "premiere",
+     "direction": "sud"
+    },
+    {
+     "id": "j1-e15",
+     "numero": 2,
+     "actif": true,
+     "type": "rencontre",
+     "titre": "Animation Celebration — Rencontre Woody",
+     "lieu": "World Premiere Plaza",
+     "duree": 30,
+     "ancre": {
+      "parametre": "j1_woody",
+      "avance": 10,
+      "commentaire": "Ancre dormante : tant qu'aucune séance n'est saisie, l'étape reste flottante à sa place de fin de journée."
+     },
+     "note": "Character Spotlight d'Animation Celebration, espace couvert. Jessie n'est plus présente depuis début juillet 2026 : c'est Woody seul, en tenue Toy Story 5 (poncho à bandana). Rencontre gratuite, photo et autographe, PhotoPass sur place — pensez au carnet et au feutre. Ouvert de 12h30 à 19h30. Searchlight Kiosk (donuts thématisés) est juste à côté. Stitch Live est dans le même bâtiment : s'il reste une séance affichée, c'est 15 min de plus.\nSÉANCES : 08h30 · 09h00 · 09h30 · 10h00 · 12h20 · 12h50 · 13h20 · 13h50",
+     "avertissements": [
+      {
+       "type": "consigne",
+       "texte": "Aucune réservation possible : Woody tient des séances fixes. Il faut se présenter à l'une d'elles. Le calendrier du jour est dans l'appli Disneyland Paris — saisissez l'heure retenue dans Réglages."
+      }
+     ],
+     "zone": "premiere",
+     "direction": "sud",
+     "ancreSiCreneau": false,
+     "attractions": [
+      {
+       "id": "9f028a0f-dd29-42b8-8f7f-1fa57ff98568",
+       "nom": "Meet Woody"
+      }
+     ]
+    },
+    {
+     "id": "j1-pipi",
+     "numero": 3,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers frozen",
+     "lieu": "De premiere vers frozen",
+     "duree": 15,
+     "zone": "frozen",
+     "note": "Mickey et le Magicien dure 65 min assis, sans sortie possible. Et il s'ecoulait 2h35 depuis la derniere occasion. On y va avant, meme si personne ne le demande."
+    },
+    {
+     "id": "j1-e2",
+     "numero": 4,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Frozen Ever After",
+     "lieu": "World of Frozen",
+     "duree": 25,
+     "note": "10 min pour remonter Adventure Way + file + 5 min de parcours + sortie. C'est l'étape la plus incertaine de la journée : si l'attente dépasse 45 min, tout le reste glisse.",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Deux vraies petites chutes, façon Pirates. La prévenir avant de monter."
+      },
+      {
+       "type": "remarque",
+       "texte": "Peut éclabousser."
+      }
+     ],
+     "zone": "frozen",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "630e2675-f9fc-4984-ba83-03daf5fc89ed",
+       "nom": "Frozen Ever After",
+       "attenteIncluse": 5,
+       "attenteMesuree": {
+        "jours": [
+         "2026-09-01",
+         "2026-09-02"
+        ],
+        "heure": 9,
+        "moyenne": 68
+       },
+       "premierAccess": true
+      }
+     ],
+     "marcheIncluse": 10,
+     "marcheIncluseNote": "Les 55 min incluent 10 min pour remonter Adventure Way. Ne pas recompter cette marche si l'étape est déplacée.",
+     "ancreSiCreneau": false,
+     "ancre": {
+      "parametre": "pa_j1-e2",
+      "avance": 0
+     }
+    },
+    {
+     "id": "j1-e4",
+     "numero": 5,
+     "actif": true,
+     "type": "flaner",
+     "titre": "FLÂNER : village d'Arendelle + boutique",
+     "lieu": "World of Frozen",
+     "duree": 10,
+     "ancre": null,
+     "note": "TEMPS LIBRE, pas une activité : c'est ici qu'on absorbe le retard de l'étape 2 s'il y en a. Olaf (animatronique mobile), Oaken, le troll Mossie, la boutique, les photos. Kristoff peut apparaître. Aucune réservation.",
+     "avertissements": [],
+     "zone": "frozen",
+     "direction": "nord"
+    },
+    {
+     "id": "j1-e3",
+     "numero": 6,
+     "actif": true,
+     "type": "rencontre",
+     "titre": "Rencontre Royale Elsa & Anna",
+     "lieu": "World of Frozen — Château d'Arendelle",
+     "duree": 25,
+     "note": "La Galerie des Portraits, la rencontre et les photos. Pas d avance a prevoir : le creneau de file virtuelle EST le rendez-vous, on se presente dedans. Anna ET Elsa ensemble en tenues de Reines, exclusivite parisienne.",
+     "avertissements": [],
+     "zone": "frozen",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "9d20895f-b80c-48c1-8e74-0e153b762b37",
+       "nom": "Rencontre Royale"
+      }
+     ],
+     "ancreSiCreneau": false,
+     "ancre": {
+      "parametre": "j1_rencontre_royale",
+      "avance": 0,
+      "commentaire": "Ancre dormante : le creneau de file virtuelle EST le rendez-vous, zero avance."
+     }
+    },
+    {
+     "id": "j1-e6",
+     "numero": 7,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers way",
+     "lieu": "De frozen vers way",
+     "duree": 15,
+     "ancre": null,
+     "note": "Le parc a doublé de taille avec le lac : 10 à 15 min de marche entre deux lands éloignés. Avec une enfant de 5 ans, une pause toilettes toutes les 2-3 heures est réaliste. Ne supprimez pas cette ligne.",
+     "avertissements": [],
+     "zone": "way",
+     "direction": "centre"
+    },
+    {
+     "id": "j1-e10",
+     "numero": 8,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Raiponce Tangled Spin",
+     "lieu": "Adventure Way",
+     "duree": 30,
+     "ancre": null,
+     "note": "Toujours sur Adventure Way, à deux pas. Gondoles sous des lanternes dorées, attente courte car la foule la snobe en courant vers Frozen. Idéal 2-5 ans.",
+     "avertissements": [],
+     "zone": "way",
+     "direction": "centre",
+     "attractions": [
+      {
+       "id": "25556e4e-aa6c-41ff-b196-29967362345e",
+       "nom": "Raiponce Tangled Spin",
+       "attenteIncluse": 15,
+       "attenteMesuree": {
+        "jours": [
+         "2026-09-01",
+         "2026-09-02"
+        ],
+        "heure": 13,
+        "moyenne": 12
+       },
+       "source": "moyenne 12h"
+      }
+     ]
+    },
+    {
+     "id": "j1-e14",
+     "numero": 9,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Les Tapis Volants",
+     "lieu": "Toon Studio",
+     "duree": 30,
+     "ancre": null,
+     "note": "Juste à côté en sortant du théâtre. Doux, sans restriction de taille.",
+     "avertissements": [],
+     "zone": "toon",
+     "direction": "ouest",
+     "attractions": [
+      {
+       "id": "8e229723-51c1-4668-b956-5bc45305acd9",
+       "nom": "Les Tapis Volants",
+       "attenteIncluse": 15,
+       "attenteMesuree": {
+        "jours": [
+         "2026-09-01",
+         "2026-09-02"
+        ],
+        "heure": 18,
+        "moyenne": 28
+       },
+       "source": "moyenne 15h"
+      }
+     ]
+    },
+    {
+     "id": "j1-e11",
+     "numero": 10,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Ratatouille : L'Aventure Totalement Toquée de Rémy",
+     "lieu": "Worlds of Pixar",
+     "duree": 75,
+     "ancre": null,
+     "note": "AUCUNE chute réelle : véhicule sans rail qui glisse sur le sol. Plus de 3D ni de lunettes depuis mars 2026, beaucoup plus confortable pour un enfant sensible.",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Reste sombre, bruyant et tournoyant, avec vent et eau."
+      }
+     ],
+     "zone": "pixar",
+     "direction": "ouest",
+     "attractions": [
+      {
+       "id": "73e1c590-ef8f-496c-bf6c-d7e7fde0c7df",
+       "nom": "Ratatouille",
+       "attenteIncluse": 50,
+       "attenteMesuree": {
+        "jours": [
+         "2026-09-01",
+         "2026-09-02"
+        ],
+        "heure": 18,
+        "moyenne": 55
+       },
+       "source": "moyenne 19h"
+      }
+     ]
+    },
+    {
+     "id": "j1-e12",
+     "numero": 11,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers avengers",
+     "lieu": "De pixar vers avengers",
+     "duree": 15,
+     "ancre": null,
+     "note": "Worlds of Pixar et Toon Studio sont mitoyens. Dernière pause avant 1h05 assis.",
+     "avertissements": [],
+     "zone": "avengers",
+     "direction": "ouest"
+    },
+    {
+     "id": "j1-spider",
+     "numero": 12,
+     "actif": true,
+     "type": "rencontre",
+     "titre": "Spider-Man Heroic Encounter",
+     "lieu": "Avengers Campus",
+     "duree": 20,
+     "zone": "avengers",
+     "direction": "est",
+     "ancre": {
+      "parametre": "j1_spider",
+      "avance": 0
+     },
+     "note": "Créneau de file virtuelle obtenu. La fenêtre de retour s'ouvre à 14h56 — arriver dès que Ratatouille libère.",
+     "avertissements": [],
+     "attractions": []
+    },
+    {
+     "id": "tr-avengers-lac-12",
+     "numero": 13,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers lac",
+     "lieu": "De avengers vers lac",
+     "duree": 15,
+     "zone": "lac",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j1-e16",
+     "numero": 14,
+     "actif": true,
+     "type": "flaner",
+     "titre": "FLÂNER : tour du lac, goûter",
+     "lieu": "Adventure Bay",
+     "duree": 15,
+     "ancre": null,
+     "note": "TEMPS LIBRE. Le tour du lac prend ~15 min, 211 bancs le long des berges. Kiosque Chez Berlioz sur la rive droite, idéal pour patienter avant le nocturne sans quitter sa place.",
+     "avertissements": [],
+     "zone": "lac",
+     "direction": "centre-nord"
+    },
+    {
+     "id": "j1-e5",
+     "numero": 15,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : Célébration à Arendelle",
+     "lieu": "Arendelle Bay",
+     "duree": 40,
+     "ancre": {
+      "parametre": "j1_arendelle",
+      "avance": 20
+     },
+     "note": "20 min d'avance + 20 min de spectacle. Chants et costumes Elsa/Anna sur trois drakkars, jets d'eau et pyrotechnie. Exclusivité parisienne. Dernier arrêt dans Frozen : on descend ensuite sans jamais remonter.\nSÉANCES : 12h20 · 13h20 · 15h50 · 16h50 · 17h50",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Jets d'eau : peut éclabousser."
+      }
+     ],
+     "zone": "frozen",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "c122d2e4-7fb7-4360-bb73-f0dc37a38179",
+       "nom": "Célébration à Arendelle"
+      }
+     ]
+    },
+    {
+     "id": "tr-frozen-toon-15",
+     "numero": 16,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers toon",
+     "lieu": "De frozen vers toon",
+     "duree": 15,
+     "zone": "toon",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j1-e13",
+     "numero": 17,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : Mickey et le Magicien",
+     "lieu": "Toon Studio — Animagique Theater",
+     "duree": 65,
+     "ancre": {
+      "parametre": "j1_mickey_magicien",
+      "avance": 25
+     },
+     "note": "25 min d'avance + 30 min de spectacle + 10 min pour évacuer la salle. ELSA y apparaît, avec Simba, le Génie et Lumière. Seul spectacle assis du jour 1. Accès garanti payant possible si la séance affiche complet.\nSÉANCES : 13h00 · 14h05 · 15h10 · 17h25 · 18h30",
+     "avertissements": [],
+     "zone": "toon",
+     "direction": "ouest",
+     "attractions": [
+      {
+       "id": "0f5cce1d-69ed-4fad-9505-a1914dd150cb",
+       "nom": "Mickey et le Magicien"
+      }
+     ]
+    },
+    {
+     "id": "j1-e7",
+     "numero": 18,
+     "actif": true,
+     "type": "flaner",
+     "titre": "FLÂNER : promenade, lac, photos",
+     "lieu": "Adventure Way",
+     "duree": 25,
+     "ancre": null,
+     "note": "TEMPS LIBRE. Bande-son de 40 min diffusée le long de l'avenue, jardins thématiques, bancs. Vous croiserez peut-être le Disney Marching Band mené par Minnie.",
+     "avertissements": [],
+     "zone": "way",
+     "direction": "centre"
+    },
+    {
+     "id": "j1-e17",
+     "numero": 19,
+     "actif": true,
+     "type": "repas",
+     "titre": "DÎNER à l'heure espagnole",
+     "lieu": "Bord du lac",
+     "duree": 60,
+     "ancre": null,
+     "note": "85 min : dîner sans se presser, c'est la vraie pause avant 45 min de station debout pour le nocturne. Comptoirs : La Terrasse Panoramique (vue lac) ou Café Luminosity.",
+     "avertissements": [],
+     "zone": "lac",
+     "direction": "centre-nord"
+    },
+    {
+     "id": "j1-e18",
+     "numero": 20,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : Disney Cascade of Lights",
+     "lieu": "Adventure Bay — côté Adventure Way",
+     "duree": 65,
+     "ancre": {
+      "parametre": "j1_cascade",
+      "avance": 45
+     },
+     "note": "45 min de placement + 17 min de spectacle. Drones aériens ET aquatiques, écrans d'eau, pyrotechnie. Version complète, contrairement à Tales of Magic. Sortie du parc vers 22h20.",
+     "avertissements": [
+      {
+       "type": "consigne",
+       "texte": "SE PLACER CÔTÉ ADVENTURE WAY. La foule se masse instinctivement côté Frozen, ce qui laisse de la place de l'autre côté du lac."
+      }
+     ],
+     "zone": "lac",
+     "direction": "centre-nord",
+     "attractions": [
+      {
+       "id": "2c51b641-2398-4833-8e1a-346fd7fe09db",
+       "nom": "Disney Cascade of Lights"
+      }
+     ]
+    },
+    {
+     "id": "j1-e8",
+     "numero": 21,
+     "actif": false,
+     "type": "repas",
+     "titre": "DÉJEUNER à l'heure espagnole",
+     "lieu": "World of Frozen — Nordic Crowns Tavern",
+     "duree": 50,
+     "ancre": null,
+     "note": "Nordic Crowns Tavern, dans le village d Arendelle. On mange sur place entre la rencontre et le spectacle : aucune marche, et le trou de 48 min disparait.",
+     "avertissements": [],
+     "zone": "frozen",
+     "direction": "centre",
+     "retrait": {
+      "motif": "Sandwichs pris en 5 min, sur place",
+      "le": "2026-09-03"
+     }
+    },
+    {
+     "id": "j1-e9",
+     "numero": 22,
+     "actif": false,
+     "type": "spectacle",
+     "titre": "CAVALCADE des Princesses Disney",
+     "lieu": "Adventure Way",
+     "duree": 35,
+     "ancre": {
+      "parametre": "j1_cavalcade",
+      "avance": 20
+     },
+     "note": "20 min d'avance + 15 min de passage. Vaiana, Raya, Tiana, Raiponce. Chars neufs, aucune réservation. Le plan prend le DERNIER passage : il n'y en a pas après 15h10. On est déjà sur place, c'est le seul spectacle qui ne coûte aucun déplacement. C'est votre vraie assurance princesses si le Pavillon du jour 2 rate.\nSÉANCES : 10h00 · 11h25 · 13h50 · 15h10",
+     "avertissements": [],
+     "zone": "way",
+     "direction": "centre",
+     "attractions": [
+      {
+       "id": "943860c5-c931-4212-a387-9e5cd139179d",
+       "nom": "Cavalcade des Princesses"
+      }
+     ],
+     "retrait": {
+      "motif": "Vue en passant à 10h20",
+      "le": "2026-09-03"
+     }
+    }
+   ],
+   "ordreSacrifice": [
+    {
+     "rang": 1,
+     "etape": "j1-e14",
+     "cible": "Les Tapis Volants",
+     "portee": "etape",
+     "gain": 35,
+     "detail": "Première ligne à sacrifier. Étape entière : on sort du théâtre et on enchaîne directement sur World Premiere Plaza."
+    },
+    {
+     "rang": 2,
+     "etape": "j1-e11",
+     "cible": "Ratatouille",
+     "portee": "etape",
+     "gain": 55,
+     "detail": "Deuxième ligne à sacrifier. Étape entière : d'Adventure Way on rejoint directement Toon Studio."
+    }
+   ],
+   "jamaisSacrifier": "Toute activité peut être retirée : l'ordre de sacrifice dit seulement laquelle l'app propose en premier. En revanche les TRANSITION restent (marche + toilettes), et les FLÂNER et REPAS se réduisent au lieu de disparaître — planchers : 10 min pour un flâner, 40 min pour un repas.",
+   "respiration": 305,
+   "zones": [
+    {
+     "id": "frozen",
+     "nom": "World of Frozen",
+     "direction": "nord",
+     "x": 18,
+     "y": 4,
+     "w": 44,
+     "h": 21,
+     "pin": {
+      "x": 55,
+      "y": 10
+     }
+    },
+    {
+     "id": "lac",
+     "nom": "Adventure Bay",
+     "direction": "centre-nord",
+     "x": 29,
+     "y": 27,
+     "w": 30,
+     "h": 15,
+     "pin": {
+      "x": 57,
+      "y": 24
+     }
+    },
+    {
+     "id": "pixar",
+     "nom": "Worlds of Pixar",
+     "direction": "ouest",
+     "x": 2,
+     "y": 29,
+     "w": 24,
+     "h": 22,
+     "photos": [
+      {
+       "nom": "Les décors du fond de Toy Story",
+       "ou": "Vers Cars Road Trip : la perspective y est la plus belle."
+      },
+      {
+       "nom": "Rex",
+       "ou": "Planté devant RC Racer."
+      },
+      {
+       "nom": "Le mur de briques",
+       "ou": "Du côté de Cars."
+      },
+      {
+       "nom": "Le mur de lettres",
+       "ou": "Toy Story Playland."
+      }
+     ],
+     "pin": {
+      "x": 76,
+      "y": 42
+     }
+    },
+    {
+     "id": "toon",
+     "nom": "Toon Studio",
+     "direction": "ouest",
+     "x": 2,
+     "y": 53,
+     "w": 24,
+     "h": 21,
+     "pin": {
+      "x": 62,
+      "y": 44
+     },
+     "pinEstime": true
+    },
+    {
+     "id": "way",
+     "nom": "Adventure Way",
+     "direction": "centre",
+     "x": 30,
+     "y": 44,
+     "w": 22,
+     "h": 34,
+     "pin": {
+      "x": 55,
+      "y": 33
+     }
+    },
+    {
+     "id": "avengers",
+     "nom": "Avengers Campus",
+     "direction": "est",
+     "x": 62,
+     "y": 29,
+     "w": 30,
+     "h": 22,
+     "pin": {
+      "x": 18,
+      "y": 43
+     }
+    },
+    {
+     "id": "courtyard",
+     "nom": "Production Courtyard",
+     "direction": "est",
+     "x": 62,
+     "y": 53,
+     "w": 30,
+     "h": 21,
+     "pin": {
+      "x": 46,
+      "y": 43
+     },
+     "pinEstime": true
+    },
+    {
+     "id": "premiere",
+     "nom": "World Premiere Plaza",
+     "direction": "sud",
+     "x": 18,
+     "y": 80,
+     "w": 48,
+     "h": 16,
+     "photos": [
+      {
+       "nom": "La statue de Walt",
+       "ou": "À la sortie du World Premiere Theater, à l'entrée du parc."
+      }
+     ],
+     "pin": {
+      "x": 52,
+      "y": 70
+     }
+    }
+   ],
+   "escapades": {
+    "cible": {
+     "nom": "Avengers Assemble : Flight Force",
+     "lieu": "Avengers Campus",
+     "direction": "sud-est",
+     "note": "Cible prioritaire. S'il reste du temps : Tower of Terror (5 min de marche, file courte), puis Crush's Coaster (13 min, file longue). Voir ciblesSuivantes.",
+     "zone": "avengers",
+     "attractionId": "ff2e7d6f-5aaf-47b8-8695-53a66e9fe073"
+    },
+    "regle": "Créneaux fixes, définis à l'avance. L'app n'en calcule aucun : elle les affiche, vous décidez sur place. Une escapade à la fois.",
+    "rappels": [
+     {
+      "titre": "File Single Rider",
+      "texte": "Gratuite, incluse dans le billet : on monte seul pour combler un siège vide. Elle N'EST PAS dans l'appli Disney — c'est une entrée physique distincte, à demander à un Cast Member. Sur Flight Force elle affiche généralement 5 min."
+     }
+    ],
+    "creneaux": [
+     {
+      "id": "esc-1",
+      "etapes": [
+       "j1-e8"
+      ],
+      "libelle": "Pendant le déjeuner",
+      "debut": "13:30",
+      "retour": "14:50",
+      "duree": 80,
+      "coute": "Rien : vous mangez plus vite.",
+      "vigilance": "L'échéance de 14h50 est fixée par la Cavalcade de 15h10 et ne bougera pas, même si la matinée a dérapé."
+     },
+     {
+      "id": "esc-2",
+      "etapes": [
+       "j1-e13"
+      ],
+      "libelle": "Pendant Mickey et le Magicien",
+      "debut": "17:00",
+      "retour": "18:05",
+      "duree": 65,
+      "coute": "Le spectacle, et Elsa qui y apparaît."
+     },
+     {
+      "id": "esc-3",
+      "etapes": [
+       "j1-e14",
+       "j1-e15"
+      ],
+      "libelle": "Pendant les Tapis Volants + Animation Celebration",
+      "debut": "18:05",
+      "retour": "19:10",
+      "duree": 65,
+      "coute": "Deux étapes secondaires.",
+      "vigilance": "C'est le créneau qui demande le moins de marche : Animation Celebration est mitoyen d'Avengers Campus."
+     },
+     {
+      "id": "esc-4",
+      "etapes": [
+       "j1-e17"
+      ],
+      "libelle": "Pendant le dîner",
+      "debut": "19:40",
+      "retour": "21:05",
+      "duree": 85,
+      "coute": "Rien : vous mangez plus vite.",
+      "risque": true,
+      "vigilance": "LE PLUS RISQUÉ. Retour impératif à 21h05 pour le placement de Cascade of Lights : le spectacle commence à 21h50 et ne se rejoue pas."
+     }
+    ],
+    "ciblesSuivantes": [
+     {
+      "priorite": 2,
+      "nom": "The Twilight Zone Tower of Terror",
+      "lieu": "Production Courtyard",
+      "zone": "courtyard",
+      "direction": "sud",
+      "attractionId": "d2ec9363-a215-4904-b297-b66734ea9a00",
+      "marcheDepuisCible": 5,
+      "singleRider": false,
+      "note": "Cinq minutes de marche depuis Avengers Campus, et la file la plus courte des trois : 19 min de moyenne le 1er septembre, entre 5 et 29 selon l'heure. C'est la plus facile à enchaîner après Flight Force.",
+      "reserve": "Chute libre. Sortie solo, jamais avec la petite."
+     },
+     {
+      "priorite": 3,
+      "nom": "Crush's Coaster",
+      "lieu": "Worlds of Pixar",
+      "zone": "pixar",
+      "direction": "nord-ouest",
+      "attractionId": "f0d4b531-e291-471b-9527-00410c2bbd65",
+      "marcheDepuisCible": 13,
+      "singleRider": true,
+      "note": "13 min de marche depuis Avengers Campus, et la file la plus longue : 77 min de moyenne le 1er septembre, jamais sous 63. La Single Rider descend vers 40-60. À ne tenter que si les deux premières sont faites et qu'il reste vraiment du temps.",
+      "reserve": "Écarté du plan familial : trop intense pour une enfant de 5 ans. C'est une sortie solo, en supplément, jamais au détriment du retour."
+     }
+    ]
+   },
+   "marche": {
+    "unite": "minutes",
+    "nature": "MESURÉ le 3 septembre 2026 : World Premiere Plaza → World of Frozen, estimé 16 min, parcouru en ~10. Toute la matrice ramenée à 0,65 de l estimation d origine, qui n avait jamais été vérifiée. À affiner à chaque trajet chronométré.",
+    "ancrages": [
+     [
+      "frozen",
+      "way"
+     ],
+     [
+      "pixar",
+      "toon"
+     ]
+    ],
+    "note": "Symétrique. Ces valeurs sont la MARCHE SEULE : elles n'incluent ni pause toilettes ni temps de placement. Les étapes TRANSITION du plan ajoutent ces marges par-dessus.",
+    "matrice": {
+     "frozen": {
+      "frozen": 0,
+      "lac": 3,
+      "pixar": 10,
+      "toon": 9,
+      "way": 8,
+      "avengers": 12,
+      "courtyard": 9,
+      "premiere": 10
+     },
+     "lac": {
+      "frozen": 3,
+      "lac": 0,
+      "pixar": 7,
+      "toon": 7,
+      "way": 3,
+      "avengers": 9,
+      "courtyard": 6,
+      "premiere": 7
+     },
+     "pixar": {
+      "frozen": 10,
+      "lac": 7,
+      "pixar": 0,
+      "toon": 3,
+      "way": 5,
+      "avengers": 8,
+      "courtyard": 5,
+      "premiere": 6
+     },
+     "toon": {
+      "frozen": 9,
+      "lac": 7,
+      "pixar": 3,
+      "toon": 0,
+      "way": 4,
+      "avengers": 7,
+      "courtyard": 3,
+      "premiere": 5
+     },
+     "way": {
+      "frozen": 8,
+      "lac": 3,
+      "pixar": 5,
+      "toon": 4,
+      "way": 0,
+      "avengers": 7,
+      "courtyard": 3,
+      "premiere": 4
+     },
+     "avengers": {
+      "frozen": 12,
+      "lac": 9,
+      "pixar": 8,
+      "toon": 7,
+      "way": 7,
+      "avengers": 0,
+      "courtyard": 3,
+      "premiere": 5
+     },
+     "courtyard": {
+      "frozen": 9,
+      "lac": 6,
+      "pixar": 5,
+      "toon": 3,
+      "way": 3,
+      "avengers": 3,
+      "courtyard": 0,
+      "premiere": 4
+     },
+     "premiere": {
+      "frozen": 10,
+      "lac": 7,
+      "pixar": 6,
+      "toon": 5,
+      "way": 4,
+      "avengers": 5,
+      "courtyard": 4,
+      "premiere": 0
+     }
+    }
+   },
+   "substitutions": [
+    {
+     "nom": "Slinky Dog Zigzag Spin",
+     "id": "337bce77-57bd-49c7-83d7-662f16c162ea",
+     "zone": "pixar",
+     "interet": "très doux"
+    },
+    {
+     "nom": "Cars Quatre Roues Rallye",
+     "id": "d944b02c-12ce-4176-ac62-6a936f180b5c",
+     "zone": "pixar",
+     "interet": "très doux"
+    },
+    {
+     "nom": "Cars ROAD TRIP",
+     "id": "449a20d8-9bfd-4b2b-b437-38a279aa8d88",
+     "zone": "pixar",
+     "interet": "doux",
+     "reserve": "éclabousse"
+    },
+    {
+     "nom": "Animation Academy",
+     "id": "3bdddd5f-6ec1-4143-a915-2e95b2fa275f",
+     "zone": "premiere",
+     "interet": "cours de dessin, elle repart avec son dessin"
+    },
+    {
+     "nom": "Spider-Man W.E.B. Adventure",
+     "id": "f710814b-232d-4469-aad7-d98b328a15b7",
+     "zone": "avengers",
+     "interet": "interactif, bon pour les grands-parents"
+    }
+   ]
+  },
+  {
+   "numero": 2,
+   "date": "2026-09-04",
+   "libelle": "Vendredi 4 septembre 2026",
+   "parc": "Parc Disneyland",
+   "sousTitre": "le parc classique",
+   "ouverture": "09:30",
+   "fermeture": "22:00",
+   "etapes": [
+    {
+     "id": "j2-e1",
+     "numero": 1,
+     "actif": true,
+     "type": "arrivee",
+     "titre": "Arrivée + file virtuelle Pavillon des Princesses",
+     "lieu": "Entrée / Main Street",
+     "duree": 45,
+     "ancre": {
+      "parametre": "j2_ouverture",
+      "avance": 45
+     },
+     "note": "Réserver le créneau dès les tourniquets. Remonter Main Street par la Discovery Arcade, galerie couverte latérale. Deux vagues : ouverture, puis début d'après-midi.",
+     "avertissements": [],
+     "zone": "mainstreet",
+     "direction": "sud"
+    },
+    {
+     "id": "j2-e4",
+     "numero": 2,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers discoveryland",
+     "lieu": "De mainstreet vers discoveryland",
+     "duree": 15,
+     "ancre": null,
+     "note": "Redescendre de Fantasyland jusqu'à Main Street et trouver sa place avant la parade.",
+     "avertissements": [],
+     "zone": "discoveryland",
+     "direction": "sud"
+    },
+    {
+     "id": "j2-e16",
+     "numero": 3,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Buzz Lightyear Laser Blast",
+     "lieu": "Discoveryland",
+     "duree": 40,
+     "ancre": null,
+     "note": "La plus longue file du parc (38-47 min l'apres-midi). On la prend a l'ouverture : moyenne 20 min a 9h, mais jusqu'a 40 selon l'affluence — le budget en tient compte.",
+     "avertissements": [],
+     "zone": "discoveryland",
+     "direction": "est",
+     "attractions": [
+      {
+       "id": "03992704-698d-474b-a721-a5ac3498edb9",
+       "nom": "Buzz Lightyear Laser Blast",
+       "attenteIncluse": 25
+      },
+      {
+       "id": "f0525c25-4ea2-49b7-aab5-150b27658fb6",
+       "nom": "Orbitron"
+      },
+      {
+       "id": "3a1cd3f7-9c42-4f9b-90fa-dab7ba113862",
+       "nom": "Autopia"
+      }
+     ]
+    },
+    {
+     "id": "j2-e8",
+     "numero": 4,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers fantasyland",
+     "lieu": "De discoveryland vers fantasyland",
+     "duree": 15,
+     "ancre": null,
+     "note": "Passage de Fantasyland à Frontierland par l'ouest. Seul aller-retour vers Frontierland de la journée.",
+     "avertissements": [],
+     "zone": "fantasyland",
+     "direction": "ouest"
+    },
+    {
+     "id": "j2-e2",
+     "numero": 5,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Blanche-Neige et les Sept Nains",
+     "lieu": "Fantasyland",
+     "duree": 30,
+     "ancre": null,
+     "note": "Rope drop : c'est la file qui grossit le plus vite maintenant que Peter Pan est fermé (réhabilitation du 31 août au 18 septembre 2026).",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Classée « peut effrayer les plus petits » : la sorcière marque beaucoup d'enfants de 5 ans. Si ça se passe mal, sauter Les Voyages de Pinocchio dans le bloc libre qui suit."
+      }
+     ],
+     "zone": "fantasyland",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "8ed1472a-4d2e-47f1-b848-353de0bc3670",
+       "nom": "Blanche-Neige et les Sept Nains",
+       "attenteIncluse": 20
+      }
+     ]
+    },
+    {
+     "id": "j2-e6",
+     "numero": 6,
+     "actif": true,
+     "type": "activite",
+     "titre": "MAQUILLAGE : stand de maquillage princesse",
+     "lieu": "Fantasyland — près de Sir Mickey's Boutique",
+     "duree": 25,
+     "ancre": null,
+     "note": "AUCUNE RÉSERVATION : on achète le motif à la boutique voisine (La Confiserie des Trois Fées), on reçoit un ticket, on le présente au stand. Dès 3 ans, sans limite d'âge maximale. ~19 € sur le visage pour une personne (27 € pour deux, 36 € pour trois), dès 15 € sur le bras. Ouvert de 10h00 jusqu'à 3h avant la fermeture, soit dernier maquillage vers 19h00. Les motifs de la carte servent de BASE : la maquilleuse s'adapte (demi-visage, sans les yeux, sans la bouche). Des motifs Elsa et princesses existent. Placé AVANT la rencontre princesses et La Valse Royale, pour les photos.",
+     "avertissements": [],
+     "zone": "fantasyland",
+     "direction": "nord"
+    },
+    {
+     "id": "j2-e7",
+     "numero": 7,
+     "actif": true,
+     "type": "rencontre",
+     "titre": "Pavillon des Princesses",
+     "lieu": "Fantasyland",
+     "duree": 40,
+     "ancre": {
+      "parametre": "j2_pavillon_princesses",
+      "avance": 0,
+      "commentaire": "Ancre DORMANTE : tant que le creneau n est pas obtenu elle ne fixe rien. Des qu il tombe, il commande la journee. Avance 0 : un creneau de file virtuelle EST le rendez-vous."
+     },
+     "note": "Créneau de file virtuelle obtenu à 10h30. File de retour puis rencontre : compter 40 min.",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "ELSA ET ANNA N'Y SONT PAS. Le lui dire avant, pour éviter la déception."
+      }
+     ],
+     "zone": "fantasyland",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "14924bd7-ffbf-47ee-a96e-2d5bd3fb5f25",
+       "nom": "Pavillon des Princesses"
+      }
+     ],
+     "ancreSiCreneau": true
+    },
+    {
+     "id": "j2-e14",
+     "numero": 8,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers plaza",
+     "lieu": "De fantasyland vers plaza",
+     "duree": 10,
+     "ancre": null,
+     "note": "Du Théâtre du Château, on descend par Central Plaza vers Discoveryland, land mitoyen.",
+     "avertissements": [],
+     "zone": "plaza",
+     "direction": "est"
+    },
+    {
+     "id": "j2-e5",
+     "numero": 9,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "PARADE : Disney Stars on Parade",
+     "lieu": "Main Street / Central Plaza",
+     "duree": 30,
+     "ancre": {
+      "parametre": "j2_parade",
+      "avance": 15
+     },
+     "note": "UNE SEULE fois, le MATIN : toute la journée est bâtie autour. 30 min d'avance. Parade classique qui AVANCE SANS S'ARRÊTER, de Fantasyland jusqu'à Town Square. 8 unités thématiques. Anna et Elsa y apparaissent, plus un char dédié aux princesses. Beignet Mickey au Market House Deli et au Cable Car Bake Shop juste à côté.",
+     "avertissements": [
+      {
+       "type": "consigne",
+       "texte": "SE PLACER EN HAUT DE MAIN STREET CÔTÉ CENTRAL PLAZA : bonne vue sur la fin du défilé et sortie rapide. Avec une enfant, viser le PREMIER RANG, les personnages interagissent."
+      }
+     ],
+     "zone": "plaza",
+     "direction": "centre",
+     "attractions": [
+      {
+       "id": "777518c2-1c65-48ba-94a1-e19583c44bf5",
+       "nom": "Disney Stars on Parade"
+      }
+     ]
+    },
+    {
+     "id": "j2-e17",
+     "numero": 10,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers fantasyland",
+     "lieu": "De plaza vers fantasyland",
+     "duree": 10,
+     "ancre": null,
+     "note": "Dernière traversée de la journée.",
+     "avertissements": [],
+     "zone": "fantasyland",
+     "direction": "centre-nord"
+    },
+    {
+     "id": "j2-e12",
+     "numero": 11,
+     "actif": true,
+     "type": "attraction",
+     "titre": "it's a small world",
+     "lieu": "Fantasyland (nord)",
+     "duree": 20,
+     "ancre": null,
+     "note": "Même secteur que Le Pays des Contes de Fées, on enchaîne sans traverser. Grosse capacité : la file avance vite même longue. Assis, au calme, à l'abri. Elle n'y reconnaîtra aucun personnage, ce n'est tiré d'aucun film.",
+     "avertissements": [],
+     "zone": "fantasyland",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "ce87a0fe-c644-475e-abb6-9727e05cebff",
+       "nom": "it's a small world",
+       "attenteIncluse": 20
+      }
+     ]
+    },
+    {
+     "id": "j2-e11",
+     "numero": 12,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Le Pays des Contes de Fées",
+     "lieu": "Fantasyland (ouest)",
+     "duree": 20,
+     "ancre": null,
+     "note": "Passage direct de Frontierland à Fantasyland ouest. Croisière lente devant des scènes miniatures : Blanche-Neige, La Petite Sirène, Aladdin, Raiponce. OPTION au même quai : Casey Jr., le Petit Train du Cirque.",
+     "avertissements": [],
+     "zone": "fantasyland",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "9056906c-0030-4951-be5e-44ac1f273491",
+       "nom": "Le Pays des Contes de Fées",
+       "attenteIncluse": 15
+      },
+      {
+       "id": "7ff5d512-aed5-479a-8b3d-9bd1efb4177b",
+       "nom": "Casey Jr."
+      }
+     ]
+    },
+    {
+     "id": "tr-frontierland-chateau-12",
+     "numero": 13,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers frontierland",
+     "lieu": "De fantasyland vers frontierland",
+     "duree": 10,
+     "zone": "frontierland",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-e3",
+     "numero": 14,
+     "actif": true,
+     "type": "flaner",
+     "titre": "FLÂNER : Frontierland + sandwich",
+     "lieu": "Frontierland",
+     "duree": 25,
+     "ancre": null,
+     "note": "Le moment sandwich. Fuente del Oro et Last Chance Café sont sur place.",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Les Voyages de Pinocchio est aussi classé « peut effrayer »."
+      }
+     ],
+     "zone": "frontierland",
+     "direction": "nord",
+     "attractions": [
+      {
+       "id": "ced30c44-9b79-45de-a8c9-6347298756c1",
+       "nom": "Le Carrousel de Lancelot"
+      },
+      {
+       "id": "46406e4a-4a02-4d30-89bc-ef1ed63c1ff9",
+       "nom": "Dumbo"
+      },
+      {
+       "id": "252b9b03-f770-4979-b3b2-f4ffecc3894d",
+       "nom": "Alice's Curious Labyrinth"
+      },
+      {
+       "id": "594dabd8-ddc1-4835-aafa-f654e10ed2db",
+       "nom": "Les Voyages de Pinocchio"
+      }
+     ]
+    },
+    {
+     "id": "j2-mysterieux",
+     "numero": 15,
+     "actif": true,
+     "type": "rencontre",
+     "titre": "MYSTERIOUS MEETING (Phantom Manor)",
+     "lieu": "Frontierland — près de Phantom Manor",
+     "duree": 25,
+     "zone": "frontierland",
+     "direction": "ouest",
+     "ancre": {
+      "parametre": "j2_mysterious",
+      "avance": 0
+     },
+     "avertissements": [],
+     "note": "Mickey en costume de Phantom Manor (parfois Pluto). Séances toutes les 30 min de 10h00 à 15h30 — la dernière est à 15h30."
+    },
+    {
+     "id": "tr-chateau-frontierland-15",
+     "numero": 16,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers chateau",
+     "lieu": "De frontierland vers chateau",
+     "duree": 10,
+     "zone": "chateau",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-e18",
+     "numero": 17,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Château + Galerie de la Belle au Bois Dormant",
+     "lieu": "Château / Fantasyland",
+     "duree": 25,
+     "ancre": null,
+     "note": "Galerie à l'étage. La Tanière du Dragon est écartée à votre demande.",
+     "avertissements": [
+      {
+       "type": "consigne",
+       "texte": "PONT EN TRAVAUX du 4 mai à fin septembre 2026 : entrée principale barrée, douves asséchées. ENTRER PAR LES CÔTÉS, CÔTÉ FANTASYLAND."
+      }
+     ],
+     "zone": "chateau",
+     "direction": "centre-nord",
+     "attractions": [
+      {
+       "id": "38bafc85-cb48-488e-aa68-3e2d01ae6a10",
+       "nom": "La Galerie de la Belle au Bois Dormant",
+       "attenteIncluse": 10
+      }
+     ]
+    },
+    {
+     "id": "j2-e13",
+     "numero": 18,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : La Valse Royale de la Belle au Bois Dormant",
+     "lieu": "Théâtre du Château",
+     "duree": 45,
+     "ancre": {
+      "parametre": "j2_valse_royale",
+      "avance": 20
+     },
+     "note": "20 min d'avance + 20 min de spectacle. Joué depuis le 1er juillet 2026 au Théâtre du Château. Aurore et le Prince ouvrent une valse rejointe par d'autres princesses.\nSÉANCES : 14h55 · 16h10 · 16h45",
+     "avertissements": [
+      {
+       "type": "remarque",
+       "texte": "Pas de photo ni d'autographe : on les voit sur scène, c'est tout. Le lui dire avant."
+      }
+     ],
+     "zone": "chateau",
+     "direction": "centre-nord",
+     "attractions": [
+      {
+       "id": "e455339a-7129-47fe-996c-7b365fd797a5",
+       "nom": "La Valse Royale"
+      }
+     ]
+    },
+    {
+     "id": "tr-frontierland-discoveryland-17",
+     "numero": 19,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers frontierland",
+     "lieu": "De chateau vers frontierland",
+     "duree": 10,
+     "zone": "frontierland",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-e9",
+     "numero": 20,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : Le Roi Lion et les Rythmes de la Terre",
+     "lieu": "Frontierland Theater",
+     "duree": 50,
+     "ancre": {
+      "parametre": "j2_roi_lion",
+      "avance": 20
+     },
+     "note": "20 min d'avance + 30 min de spectacle. La séance de 13h30 est la seule qui libère tout l'après-midi pour PhilharMagique et Buzz. Accès garanti payant si la séance affiche complet. Churros à l'Overland Trail Café juste à côté (4,30 € les 6).\nSÉANCES : 12h30 · 13h30 · 16h05 · 17h05",
+     "avertissements": [],
+     "zone": "frontierland",
+     "direction": "ouest",
+     "attractions": [
+      {
+       "id": "78abb817-4564-41e2-b0de-fa0df34664c1",
+       "nom": "Le Roi Lion"
+      }
+     ]
+    },
+    {
+     "id": "tr-discoveryland-chateau-20",
+     "numero": 21,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers discoveryland",
+     "lieu": "De frontierland vers discoveryland",
+     "duree": 15,
+     "zone": "discoveryland",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-e15",
+     "numero": 22,
+     "actif": true,
+     "type": "spectacle",
+     "titre": "SPECTACLE : Mickey et son Orchestre PhilharMagique",
+     "lieu": "Discoveryland Theatre",
+     "duree": 40,
+     "ancre": {
+      "parametre": "j2_philharmagique",
+      "avance": 10
+     },
+     "note": "Spectacle à horaires, pas une attraction : séances toutes les 30 min dès 12h30. Film 4D de 12 min, assis, doux.\nSÉANCES : 12h30 · 13h00 · 13h30 · 14h00 · 14h30 · 15h00 · 15h30 · 16h00 · 16h30 · 17h00 · 17h30",
+     "avertissements": [
+      {
+       "type": "consigne",
+       "texte": "Dernière séance de la journée : 17h30, l'attraction ferme ensuite. Arriver à 17h20 laisse 10 min, c'est court pour un spectacle en salle — si le retard dépasse 10 min, viser la séance de 17h00."
+      }
+     ],
+     "zone": "discoveryland",
+     "direction": "est",
+     "attractions": [
+      {
+       "id": "a970c245-4924-48bd-bced-efc14850b116",
+       "nom": "PhilharMagique",
+       "attenteIncluse": 10
+      }
+     ]
+    },
+    {
+     "id": "tr-chateau-adventureland-22",
+     "numero": 23,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers adventureland",
+     "lieu": "De discoveryland vers adventureland",
+     "duree": 15,
+     "zone": "adventureland",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-pirates",
+     "numero": 24,
+     "actif": true,
+     "type": "attraction",
+     "titre": "Pirates of the Caribbean",
+     "lieu": "Adventureland",
+     "duree": 25,
+     "zone": "adventureland",
+     "direction": "ouest",
+     "ancre": null,
+     "avertissements": [],
+     "note": "Elle a supporté la chute de Frozen Ever After, donc celle-ci passe. Attente mesurée : 5 min à 9h, 7 à 10h, 23 à 13h — on la prend au plus tôt.",
+     "attractions": [
+      {
+       "id": "0d822af0-bf02-47a7-bc29-672d2fa4f7ab",
+       "nom": "Pirates of the Caribbean",
+       "attenteIncluse": 10
+      }
+     ]
+    },
+    {
+     "id": "tr-adventureland-mainstreet-24",
+     "numero": 25,
+     "actif": true,
+     "type": "transition",
+     "titre": "TRANSITION : marche vers mainstreet",
+     "lieu": "De adventureland vers mainstreet",
+     "duree": 15,
+     "zone": "mainstreet",
+     "note": "Marche et pause toilettes."
+    },
+    {
+     "id": "j2-e19",
+     "numero": 26,
+     "actif": true,
+     "type": "flaner",
+     "titre": "FLÂNER : Mad Hatter's Tea Cups, boutiques, photos",
+     "lieu": "Fantasyland / Main Street",
+     "duree": 20,
+     "ancre": null,
+     "note": "TEMPS LIBRE avant de partir. Si vous êtes à l'heure : les tasses, dont le rythme se dose avec la roue centrale. Sinon : descente tranquille de Main Street, boutiques, dernière photo du château en lumière de fin de journée. Cookie Kitchen et Boardwalk Candy Palace sur le chemin.",
+     "avertissements": [],
+     "zone": "mainstreet",
+     "direction": "sud",
+     "attractions": [
+      {
+       "id": "bcc5567f-f00b-4a7d-8ee6-526cc8d3d5de",
+       "nom": "Mad Hatter's Tea Cups"
+      }
+     ]
+    },
+    {
+     "id": "j2-e20",
+     "numero": 27,
+     "actif": true,
+     "type": "sortie",
+     "titre": "SORTIE DU PARC",
+     "lieu": "Main Street / sortie",
+     "duree": 15,
+     "ancre": null,
+     "note": "Départ volontaire à 20h00. Vous ne verrez pas Disney Tales of Magic (22h00) : il tourne en version réduite jusqu'à fin septembre, sans drones ni fontaines. Cascade of Lights du jour 1 est la version complète. En quittant à 20h00 vous évitez deux journées de 13h d'affilée.",
+     "avertissements": [],
+     "zone": "entree",
+     "direction": "sud"
+    },
+    {
+     "id": "j2-e10",
+     "numero": 28,
+     "actif": false,
+     "type": "repas",
+     "titre": "DÉJEUNER à l'heure espagnole",
+     "lieu": "Frontierland",
+     "duree": 80,
+     "ancre": null,
+     "note": "Cowboy Cookout Barbecue, au comptoir, juste à côté du théâtre : zéro déplacement en sortant du spectacle. À 14h00 les files des comptoirs sont retombées. Click & Collect pour aller plus vite.",
+     "avertissements": [],
+     "zone": "frontierland",
+     "direction": "ouest",
+     "retrait": {
+      "motif": "Plus d'étape repas : sandwich pendant les flâneries",
+      "le": "2026-09-03"
+     }
+    }
+   ],
+   "ordreSacrifice": [
+    {
+     "rang": 1,
+     "etape": "j2-e19",
+     "cible": "Mad Hatter's Tea Cups",
+     "portee": "partiel",
+     "gain": 15,
+     "detail": "Première coupe : on renonce aux tasses dans le bloc flâner de l'étape 19, on garde la descente de Main Street. Le bloc flâner lui-même n'est PAS supprimé."
+    },
+    {
+     "rang": 2,
+     "etape": "j2-e3",
+     "cible": "Les Voyages de Pinocchio",
+     "portee": "partiel",
+     "gain": 0,
+     "detail": "Deuxième coupe : déjà hors planning, dans le bloc libre du matin. À abandonner d'office si Blanche-Neige s'est mal passé."
+    }
+   ],
+   "jamaisSacrifier": "Toute activité peut être retirée : l'ordre de sacrifice dit seulement laquelle l'app propose en premier. En revanche les TRANSITION restent (marche + toilettes), et les FLÂNER et REPAS se réduisent au lieu de disparaître — planchers : 10 min pour un flâner, 40 min pour un repas.",
+   "respiration": 195,
+   "zones": [
+    {
+     "id": "fantasyland",
+     "nom": "Fantasyland",
+     "direction": "nord",
+     "x": 24,
+     "y": 4,
+     "w": 46,
+     "h": 22,
+     "photos": [
+      {
+       "nom": "Le côté droit de Toad Hall",
+       "ou": "Vue sur le château d'Alice, au centre du labyrinthe."
+      },
+      {
+       "nom": "En haut du château d'Alice",
+       "ou": "Au sommet du labyrinthe d'Alice : vue plongeante sur Fantasyland."
+      },
+      {
+       "nom": "Le mur rose",
+       "ou": "Fantasyland. Bon fond pour un portrait."
+      },
+      {
+       "nom": "Le mur arlequin",
+       "ou": "Entre Fantasyland et Discoveryland."
+      }
+     ],
+     "pin": {
+      "x": 60,
+      "y": 18
+     }
+    },
+    {
+     "id": "chateau",
+     "nom": "Château",
+     "direction": "centre-nord",
+     "x": 34,
+     "y": 28,
+     "w": 26,
+     "h": 12,
+     "photos": [
+      {
+       "nom": "Au pied du château, côté gauche",
+       "ou": "Près de l'entrée de La Tanière du Dragon : cadrage rapproché et théâtral."
+      },
+      {
+       "nom": "Le puits aux souhaits",
+       "ou": "À droite du château : plus intime, le puits au premier plan."
+      },
+      {
+       "nom": "Sous les arches",
+       "ou": "À droite du château : les arcades encadrent la photo."
+      },
+      {
+       "nom": "Le passage derrière le château",
+       "ou": "Côté Adventureland. Beaucoup moins fréquenté, vue différente."
+      },
+      {
+       "nom": "La roseraie",
+       "ou": "Cadre fleuri, à côté du château."
+      },
+      {
+       "nom": "Photographes PhotoPass",
+       "ou": "Postés devant le château, avec parfois des effets spéciaux."
+      }
+     ],
+     "pin": {
+      "x": 54,
+      "y": 31
+     }
+    },
+    {
+     "id": "frontierland",
+     "nom": "Frontierland",
+     "direction": "ouest",
+     "x": 2,
+     "y": 18,
+     "w": 20,
+     "h": 36,
+     "pin": {
+      "x": 30,
+      "y": 63
+     }
+    },
+    {
+     "id": "adventureland",
+     "nom": "Adventureland",
+     "direction": "sud-ouest",
+     "x": 2,
+     "y": 56,
+     "w": 20,
+     "h": 26,
+     "pin": {
+      "x": 30,
+      "y": 30
+     }
+    },
+    {
+     "id": "discoveryland",
+     "nom": "Discoveryland",
+     "direction": "est",
+     "x": 72,
+     "y": 22,
+     "w": 26,
+     "h": 38,
+     "photos": [
+      {
+       "nom": "Les murs colorés",
+       "ou": "Étoiles, turquoise et violet, près de Buzz Lightyear."
+      },
+      {
+       "nom": "Le mur arlequin",
+       "ou": "Entre Discoveryland et Fantasyland."
+      }
+     ],
+     "pin": {
+      "x": 75,
+      "y": 50
+     }
+    },
+    {
+     "id": "plaza",
+     "nom": "Central Plaza",
+     "direction": "centre",
+     "x": 36,
+     "y": 42,
+     "w": 22,
+     "h": 12,
+     "pin": {
+      "x": 53,
+      "y": 52
+     }
+    },
+    {
+     "id": "mainstreet",
+     "nom": "Main Street",
+     "direction": "sud",
+     "x": 36,
+     "y": 56,
+     "w": 22,
+     "h": 30,
+     "photos": [
+      {
+       "nom": "Le kiosque de Town Square",
+       "ou": "Sous le gazebo, en bas de Main Street : le château au bout de la perspective."
+      }
+     ],
+     "pin": {
+      "x": 53,
+      "y": 64
+     }
+    },
+    {
+     "id": "entree",
+     "nom": "Entrée / Town Square",
+     "direction": "sud",
+     "x": 28,
+     "y": 88,
+     "w": 38,
+     "h": 9,
+     "photos": [
+      {
+       "nom": "Le kiosque de Town Square",
+       "ou": "Sous le gazebo, à l'entrée : toute la perspective de Main Street avec le château au fond. C'est le cadrage le plus classique du parc."
+      }
+     ],
+     "pin": {
+      "x": 53,
+      "y": 78
+     }
+    }
+   ],
+   "marche": {
+    "unite": "minutes",
+    "nature": "MESURÉ le 3 septembre 2026 : World Premiere Plaza → World of Frozen, estimé 16 min, parcouru en ~10. Toute la matrice ramenée à 0,65 de l estimation d origine, qui n avait jamais été vérifiée. À affiner à chaque trajet chronométré.",
+    "ancrages": [
+     [
+      "fantasyland",
+      "mainstreet"
+     ],
+     [
+      "chateau",
+      "discoveryland"
+     ],
+     [
+      "fantasyland",
+      "frontierland"
+     ]
+    ],
+    "note": "Symétrique. Ces valeurs sont la MARCHE SEULE : elles n'incluent ni pause toilettes ni temps de placement. Les étapes TRANSITION du plan ajoutent ces marges par-dessus.",
+    "matrice": {
+     "fantasyland": {
+      "fantasyland": 0,
+      "chateau": 3,
+      "frontierland": 5,
+      "adventureland": 7,
+      "discoveryland": 6,
+      "plaza": 5,
+      "mainstreet": 8,
+      "entree": 9
+     },
+     "chateau": {
+      "fantasyland": 3,
+      "chateau": 0,
+      "frontierland": 5,
+      "adventureland": 5,
+      "discoveryland": 5,
+      "plaza": 3,
+      "mainstreet": 5,
+      "entree": 7
+     },
+     "frontierland": {
+      "fantasyland": 5,
+      "chateau": 5,
+      "frontierland": 0,
+      "adventureland": 3,
+      "discoveryland": 8,
+      "plaza": 4,
+      "mainstreet": 6,
+      "entree": 8
+     },
+     "adventureland": {
+      "fantasyland": 7,
+      "chateau": 5,
+      "frontierland": 3,
+      "adventureland": 0,
+      "discoveryland": 8,
+      "plaza": 4,
+      "mainstreet": 6,
+      "entree": 8
+     },
+     "discoveryland": {
+      "fantasyland": 6,
+      "chateau": 5,
+      "frontierland": 8,
+      "adventureland": 8,
+      "discoveryland": 0,
+      "plaza": 4,
+      "mainstreet": 6,
+      "entree": 8
+     },
+     "plaza": {
+      "fantasyland": 5,
+      "chateau": 3,
+      "frontierland": 4,
+      "adventureland": 4,
+      "discoveryland": 4,
+      "plaza": 0,
+      "mainstreet": 3,
+      "entree": 5
+     },
+     "mainstreet": {
+      "fantasyland": 8,
+      "chateau": 5,
+      "frontierland": 6,
+      "adventureland": 6,
+      "discoveryland": 6,
+      "plaza": 3,
+      "mainstreet": 0,
+      "entree": 3
+     },
+     "entree": {
+      "fantasyland": 9,
+      "chateau": 7,
+      "frontierland": 8,
+      "adventureland": 8,
+      "discoveryland": 8,
+      "plaza": 5,
+      "mainstreet": 3,
+      "entree": 0
+     }
+    }
+   },
+   "substitutions": [
+    {
+     "nom": "Casey Jr.",
+     "id": "7ff5d512-aed5-479a-8b3d-9bd1efb4177b",
+     "zone": "fantasyland",
+     "interet": "petit train, très doux"
+    },
+    {
+     "nom": "Alice's Curious Labyrinth",
+     "id": "252b9b03-f770-4979-b3b2-f4ffecc3894d",
+     "zone": "fantasyland",
+     "interet": "labyrinthe, vue sur Fantasyland"
+    },
+    {
+     "nom": "Orbitron",
+     "id": "f0525c25-4ea2-49b7-aab5-150b27658fb6",
+     "zone": "discoveryland",
+     "interet": "doux"
+    },
+    {
+     "nom": "Autopia",
+     "id": "3a1cd3f7-9c42-4f9b-90fa-dab7ba113862",
+     "zone": "discoveryland",
+     "interet": "81 cm, elle conduit elle-même, gros effet à 5 ans"
+    },
+    {
+     "nom": "Le Passage Enchanté d'Aladdin",
+     "id": "07782089-5e83-4bee-8a39-735818551844",
+     "zone": "adventureland",
+     "interet": "sans file, très court"
+    },
+    {
+     "nom": "La Plage des Pirates",
+     "id": "2aa73e46-8dcf-4201-b334-db31e6e6ca06",
+     "zone": "adventureland",
+     "interet": "aire de jeux, section 3-6 ans"
+    },
+    {
+     "nom": "Thunder Mesa Riverboat Landing",
+     "id": "323bec06-fef7-4a60-989d-e3fcf9d3db7e",
+     "zone": "frontierland",
+     "interet": "croisière calme, assis"
+    },
+    {
+     "nom": "Frontierland Playground",
+     "id": "03871aa6-a0b5-41ee-8fd3-b2f4b8dccc79",
+     "zone": "frontierland",
+     "interet": "aire de jeux"
+    },
+    {
+     "nom": "Disneyland Railroad",
+     "id": "0d9296c0-a76c-4578-b0f9-2ff4b4e385b5",
+     "zone": "mainstreet",
+     "interet": "repose les jambes"
+    },
+    {
+     "nom": "Main Street Vehicles",
+     "id": "d6c61231-8f9b-40fa-943a-fe1454e185e7",
+     "zone": "mainstreet",
+     "interet": "court, sur le chemin"
+    },
+    {
+     "nom": "Pirates of the Caribbean",
+     "id": "0d822af0-bf02-47a7-bc29-672d2fa4f7ab",
+     "zone": "adventureland",
+     "interet": "à ne proposer qu'avec réserve",
+     "reserve": "sombre, 2 vraies descentes — seulement si Frozen Ever After est bien passé"
+    }
+   ],
+   "escapades": {
+    "cibles": [
+     {
+      "nom": "Big Thunder Mountain",
+      "lieu": "Frontierland",
+      "zone": "frontierland",
+      "direction": "ouest",
+      "attractionId": "852d957c-382e-4afb-bb74-70c9a79055df",
+      "singleRider": false
+     },
+     {
+      "nom": "Pirates of the Caribbean",
+      "lieu": "Adventureland",
+      "zone": "adventureland",
+      "direction": "sud-ouest",
+      "attractionId": "0d822af0-bf02-47a7-bc29-672d2fa4f7ab",
+      "singleRider": false
+     },
+     {
+      "nom": "Star Wars Hyperspace Mountain",
+      "lieu": "Discoveryland",
+      "zone": "discoveryland",
+      "direction": "est",
+      "attractionId": "ddca340c-7ba1-4f23-89eb-0d3d52c84bda",
+      "singleRider": true
+     }
+    ],
+    "regle": "Créneaux fixes, définis à l'avance. L'app n'en calcule aucun : elle les affiche, vous décidez sur place. Une escapade à la fois. Le groupe change à chaque fois.",
+    "geographie": "Adventureland et Frontierland ne sont sur le parcours que de 13h10 à 15h50 : c'est l'unique passage de ce côté du parc. Discoveryland est à l'opposé, à l'est, en fin de journée.",
+    "rappels": [
+     {
+      "titre": "Ni Big Thunder ni Pirates n'ont de file Single Rider",
+      "texte": "Vérifié sur l'API le 1er septembre : aucune des deux ne l'expose. Il faut compter la file complète. C'est ce qui rend le temps d'attente en direct indispensable ici, bien plus qu'au jour 1 — toujours l'afficher avant de valider le départ."
+     },
+     {
+      "titre": "Les temps affichés par Disney sont surestimés",
+      "texte": "45 min annoncées valent souvent 30 réelles. Le biais joue en faveur du départ."
+     }
+    ],
+    "creneaux": [
+     {
+      "id": "esc2-1",
+      "etapes": [
+       "j2-e3",
+       "j2-e4"
+      ],
+      "libelle": "Pendant le flânage en Fantasyland + la descente vers Main Street",
+      "debut": "10:05",
+      "retour": "11:00",
+      "duree": 55,
+      "cible": "852d957c-382e-4afb-bb74-70c9a79055df",
+      "qui": "le parent + le grand-père",
+      "restent": "l'autre parent et la grand-mère, avec sa fille",
+      "coute": "Le flânage tranquille en Fantasyland et la descente vers Main Street.",
+      "marcheAllerRetour": 17,
+      "attenteMax": 30,
+      "decision": "Afficher l'attente de Big Thunder dès 10h00, à la sortie de Blanche-Neige. Au-delà de 30 min annoncées, renoncer : le retour à 11h00 devient risqué.",
+      "risque": true,
+      "vigilance": "RETOUR IMPÉRATIF 11h00 pour le placement de la parade, qui ne passe qu'une seule fois, à 11h30. Le parent fait Blanche-Neige avec sa fille au rope drop — l'escapade commence après, pas avant.",
+      "mesure": "Relevé du mardi 1er septembre : Big Thunder 47 min à 9h, 75 min à 10h, 56 min à 12h, 100 min l'après-midi. À 10h05 le seuil de 30 min a peu de chances d'être tenu. Créneau à considérer comme incertain — voir alternatives."
+     },
+     {
+      "id": "esc2-2",
+      "etapes": [
+       "j2-e10",
+       "j2-e11"
+      ],
+      "libelle": "Déjeuner écourté + Le Pays des Contes de Fées",
+      "debut": "15:00",
+      "retour": "15:50",
+      "duree": 50,
+      "cible": "0d822af0-bf02-47a7-bc29-672d2fa4f7ab",
+      "qui": "le parent + les deux grands-parents",
+      "restent": "l'autre parent, avec sa fille",
+      "coute": "La fin du déjeuner et Le Pays des Contes de Fées.",
+      "marcheAllerRetour": 15,
+      "vigilance": "RETOUR IMPÉRATIF 15h50 pour it's a small world, que tout le monde veut faire ensemble. C'est le créneau le plus tendu, et le seul qui doit se décider avec la donnée en main.",
+      "decision": "À la sortie du Roi Lion à 14h00, afficher l'attente de Pirates et en déduire la durée de déjeuner disponible. Calcul : retour 15h50, moins l'attente annoncée, moins 15 min de trajet aller-retour et d'embarquement.",
+      "table": [
+       {
+        "si": "moins de 25 min",
+        "depart": "15:00",
+        "dejeuner": 60,
+        "verdict": "confortable",
+        "max": 25
+       },
+       {
+        "si": "25 à 40 min",
+        "depart": "14:50",
+        "dejeuner": 50,
+        "verdict": "jouable, déjeuner écourté",
+        "max": 40
+       },
+       {
+        "si": "40 à 55 min",
+        "depart": "14:35",
+        "dejeuner": 35,
+        "verdict": "tendu, expéditif — à vous de voir",
+        "max": 55
+       },
+       {
+        "si": "plus de 55 min",
+        "depart": null,
+        "dejeuner": 80,
+        "verdict": "RENONCER : on ne rentre pas avant small world",
+        "max": null
+       }
+      ],
+      "mesure": "Relevé du mardi 1er septembre : Pirates 5 min à 9h, 7 min à 10h, 15 min à 11h, 24 min à 12h, 15 min en début d'après-midi. Le créneau tient largement."
+     },
+     {
+      "id": "esc2-3",
+      "etapes": [
+       "j2-e13",
+       "j2-e14",
+       "j2-e15"
+      ],
+      "libelle": "Pendant La Valse Royale + la transition + PhilharMagique",
+      "debut": "16:25",
+      "retour": "18:00",
+      "duree": 95,
+      "cible": "ddca340c-7ba1-4f23-89eb-0d3d52c84bda",
+      "qui": "le parent seul",
+      "restent": "l'autre parent, avec sa fille",
+      "coute": "La Valse Royale de la Belle au Bois Dormant et PhilharMagique.",
+      "marcheAllerRetour": 0,
+      "vigilance": "Le plus confortable des cinq créneaux des deux jours : 95 min, une file Single Rider, et le groupe vous rejoint à Discoveryland pour Buzz Lightyear — le land où se trouve l'attraction. Aucune décision à instrumenter : il y va.",
+      "mesure": "Relevé du mardi 1er septembre : Hyperspace 18 min à 9h, 24 min à 11h, 41 min à 12h, 40 min l'après-midi, dont 25 min en Single Rider."
+     }
+    ],
+    "afficher": [
+     "Durée disponible",
+     "Attraction cible et son temps d'attente en direct",
+     "Qui part, qui reste",
+     "Ce que le parent rate",
+     "L'heure de retour impérative",
+     "Un bouton pour marquer le créneau comme utilisé"
+    ]
+   },
+   "reprise": {
+    "a": "10:00",
+    "avant": "j2-e6",
+    "note": "Buzz et Blanche-Neige faits avant 10h le 4 septembre : la journée repart de là."
+   }
+  }
+ ],
+ "reservations": {
+  "reglesFilesVirtuelles": [
+   "Gratuites, jour même uniquement. Aucune ne peut être réservée à l'avance.",
+   "UNE SEULE réservation active à la fois — et la suivante ne se réserve qu'une fois la première CONSOMMÉE, pas seulement obtenue.",
+   "Deux téléphones tentent en parallèle, l'un sur le wifi du parc, l'autre en 4G. Le premier qui obtient prend pour les cinq et le dit : la réservation est unique pour le groupe.",
+   "Vagues d'ouverture : 8h45, 9h45, 14h00, et parfois 17h30.",
+   "La vague de 8h45 vous est inaccessible : il faut que les billets soient scannés, donc être entré dans le parc (ouverture 9h30).",
+   "Jusqu'à 6 personnes par créneau. Vous êtes 5.",
+   "Maximum 5 rencontres par jour. Tous les membres comptent, y compris les enfants.",
+   "Les billets doivent être enregistrés dans l'appli AVANT le jour J, sinon impossible de sélectionner les participants."
+  ],
+  "actions": [
+   {
+    "id": "av-1",
+    "phase": "avant",
+    "titre": "Enregistrer les 5 billets sur DEUX téléphones",
+    "pourquoi": "Les cinq billets sur chacun des deux téléphones, pas deux et trois. Celui qui décroche le créneau le prend pour tout le groupe : s'il lui manque un billet, il manque une personne. Sans billets enregistrés, impossible de sélectionner les participants. À faire dès maintenant, pas le matin même.",
+    "critique": true
+   },
+   {
+    "id": "av-2",
+    "phase": "avant",
+    "titre": "Autoriser la géolocalisation sur les DEUX téléphones",
+    "pourquoi": "Les vagues exigent d'être physiquement dans le parc, géolocalisation activée. Un téléphone sans autorisation ne sert à rien le moment venu.",
+    "critique": true
+   },
+   {
+    "id": "av-3",
+    "phase": "avant",
+    "titre": "Deux personnes tentent : une en wifi du parc, une en 4G",
+    "pourquoi": "Les deux réseaux saturent au même moment, mais pas de la même façon : au pire l'un des deux passe. Se répartir wifi et 4G double les chances sans se gêner. Le premier qui obtient le créneau le prend pour les cinq et le dit à l'autre, qui arrête aussitôt : une seule réservation peut être active à la fois.",
+    "critique": true
+   },
+   {
+    "id": "j1-v0",
+    "phase": "vague",
+    "jour": 1,
+    "heure": "08:45",
+    "vague": 0,
+    "parametreCible": "j1_rencontre_royale",
+    "titre": "VAGUE 8h45 — hors de portée",
+    "pourquoi": "Vague inaccessible pour vous : la réservation exige que les billets soient SCANNÉS, donc d'être entré dans le parc. À 8h45 vous êtes encore aux tourniquets, le parc ouvre à 9h30.",
+    "critique": false,
+    "impossible": "Vague inaccessible pour vous : la réservation exige que les billets soient SCANNÉS, donc d'être entré dans le parc. À 8h45 vous êtes encore aux tourniquets, le parc ouvre à 9h30."
+   },
+   {
+    "id": "j1-v1",
+    "phase": "vague",
+    "jour": 1,
+    "heure": "09:45",
+    "vague": 1,
+    "parametreCible": "j1_rencontre_royale",
+    "titre": "VAGUE 9h45 — Rencontre Royale Elsa & Anna",
+    "pourquoi": "PRIORITÉ 1. C'est votre première vague réellement accessible : billets scannés, vous êtes dans le parc.",
+    "critique": true
+   },
+   {
+    "id": "j1-v2",
+    "phase": "vague",
+    "jour": 1,
+    "heure": "14:00",
+    "vague": 2,
+    "parametreCible": "j1_rencontre_royale",
+    "titre": "VAGUE 14h00 — Rencontre Royale (si échec)",
+    "pourquoi": "Deuxième chance. Un échec à 9h45 n'est pas définitif.",
+    "critique": false
+   },
+   {
+    "id": "j1-v3",
+    "phase": "vague",
+    "jour": 1,
+    "heure": "17:30",
+    "vague": 3,
+    "parametreCible": "j1_rencontre_royale",
+    "titre": "VAGUE 17h30 — Rencontre Royale (dernière chance)",
+    "pourquoi": "Vague inconstante : elle n'est pas ouverte tous les jours. À tenter si les deux précédentes ont échoué.",
+    "critique": false
+   },
+   {
+    "id": "j2-v0",
+    "phase": "vague",
+    "jour": 2,
+    "heure": "08:45",
+    "vague": 0,
+    "parametreCible": "j2_pavillon_princesses",
+    "titre": "VAGUE 8h45 — hors de portée",
+    "pourquoi": "Vague inaccessible pour vous : la réservation exige que les billets soient SCANNÉS, donc d'être entré dans le parc. À 8h45 vous êtes encore aux tourniquets, le parc ouvre à 9h30.",
+    "critique": false,
+    "impossible": "Vague inaccessible pour vous : la réservation exige que les billets soient SCANNÉS, donc d'être entré dans le parc. À 8h45 vous êtes encore aux tourniquets, le parc ouvre à 9h30."
+   },
+   {
+    "id": "j2-v1",
+    "phase": "vague",
+    "jour": 2,
+    "heure": "09:45",
+    "vague": 1,
+    "parametreCible": "j2_pavillon_princesses",
+    "titre": "VAGUE 9h45 — Pavillon des Princesses",
+    "pourquoi": "Première vague accessible, dès que les billets sont scannés.",
+    "critique": true
+   },
+   {
+    "id": "j2-v2",
+    "phase": "vague",
+    "jour": 2,
+    "heure": "14:00",
+    "vague": 2,
+    "parametreCible": "j2_pavillon_princesses",
+    "titre": "VAGUE 14h00 — Pavillon des Princesses (si échec)",
+    "pourquoi": "Deuxième chance.",
+    "critique": false
+   },
+   {
+    "id": "j2-v3",
+    "phase": "vague",
+    "jour": 2,
+    "heure": "17:30",
+    "vague": 3,
+    "parametreCible": "j2_pavillon_princesses",
+    "titre": "VAGUE 17h30 — Pavillon des Princesses (dernière chance)",
+    "pourquoi": "Vague inconstante, pas ouverte tous les jours.",
+    "critique": false
+   },
+   {
+    "id": "j1-cc",
+    "phase": "entree",
+    "jour": 1,
+    "titre": "Réserver les Click & Collect",
+    "pourquoi": "Commander maintenant fait tomber le repas de 50 à 40 min, et c'est ce qui fait tenir la journée. Les créneaux du midi partent tôt.",
+    "comptoirs": [
+     "Déjeuner — Adventure Way : Comptoirs d'Adventure Way, Bistrot Chez Rémy (Worlds of Pixar)",
+     "Dîner — Bord du lac : La Terrasse Panoramique (vue lac), Café Luminosity"
+    ],
+    "critique": true,
+    "heure": "09:30",
+    "jusqua": "12:00"
+   },
+   {
+    "id": "j2-cc",
+    "phase": "entree",
+    "jour": 2,
+    "titre": "Réserver les Click & Collect",
+    "pourquoi": "Commander maintenant fait tomber le repas de 50 à 40 min, et c'est ce qui fait tenir la journée. Les créneaux du midi partent tôt.",
+    "comptoirs": [
+     "Déjeuner — Frontierland : Cowboy Cookout Barbecue (Frontierland)"
+    ],
+    "critique": true,
+    "heure": "09:30",
+    "jusqua": "12:00"
+   }
+  ]
+ },
+ "scenariosCreneau": [
+  {
+   "parametre": "j1_rencontre_royale",
+   "jour": 1,
+   "etape": "j1-e3",
+   "titre": "Jour 1 — Rencontre Royale Elsa & Anna",
+   "cas": [
+    {
+     "condition": "avant 12:00",
+     "borneMax": "12:00",
+     "titre": "Plan nominal",
+     "action": "Saisissez l'heure : l'étape 3 et tout ce qui suit se recalent seuls. Vérifiez juste l'état de contrôle de l'étape 3.",
+     "cout": "Aucun. C'est le meilleur cas."
+    },
+    {
+     "condition": "entre 12:00 et 15:00",
+     "borneMin": "12:00",
+     "borneMax": "15:00",
+     "titre": "Aller-retour sur Adventure Way",
+     "action": "Faire Frozen Ever After à l'ouverture, puis descendre tout de suite sur Adventure Way (étapes 6 et 7). Remonter pour la rencontre, enchaîner avec le déjeuner tardif et le spectacle sur la baie, puis redescendre. Concrètement : déplacer les étapes 6 et 7 avant l'étape 3.",
+     "cout": "Un aller-retour sur Adventure Way."
+    },
+    {
+     "condition": "après 15:00",
+     "borneMin": "15:00",
+     "titre": "Rencontre en fin de journée",
+     "action": "Faire tout le bloc Frozen le matin SAUF la rencontre (attraction, village, déjeuner, spectacle), descendre normalement, et remonter en fin de journée. Enchaîner rencontre puis dîner puis Cascade of Lights.",
+     "cout": "Presque rien : le lac du nocturne est juste à côté de World of Frozen."
+    },
+    {
+     "condition": "aucun créneau",
+     "aucun": true,
+     "titre": "Repli sans rencontre",
+     "action": "Supprimer l'étape 3 et étendre le village d'Arendelle (étape 4). Vous gagnez 40 min.",
+     "cout": "Elsa et Anna apparaissent quand même : dans Frozen Ever After, dans les célébrations du village d'Arendelle, dans Mickey et le Magicien (étape 13), et le jour 2 dans Disney Stars on Parade. Le plan la fait croiser Elsa 4 fois même sans la rencontre. Sans queue du tout : Olaf, Oaken et le troll Mossie circulent librement dans le village."
+    }
+   ]
+  },
+  {
+   "parametre": "j2_pavillon_princesses",
+   "jour": 2,
+   "etape": "j2-e7",
+   "titre": "Jour 2 — Pavillon des Princesses",
+   "cas": [
+    {
+     "condition": "créneau obtenu",
+     "titre": "Plan nominal",
+     "action": "Saisissez l'heure : l'étape 7 et tout ce qui suit se recalent seuls.",
+     "cout": "Aucun."
+    },
+    {
+     "condition": "aucun créneau",
+     "aucun": true,
+     "titre": "Repli sans pavillon",
+     "action": "Supprimer l'étape 7. Vous gagnez 45 min à replacer sur Fantasyland ou sur un déjeuner plus long.",
+     "cout": "Un char est dédié aux princesses dans Disney Stars on Parade (étape 5, déjà au plan). La Valse Royale réunit Aurore et d'autres princesses sur scène (étape 13). Et surtout la Cavalcade des Princesses du jour 1 est votre vraie assurance princesses. L'Auberge de Cendrillon garantirait la rencontre mais n'est plus réservable."
+    }
+   ]
+  },
+  {
+   "parametre": "j1_woody",
+   "jour": 1,
+   "etape": "j1-e15",
+   "titre": "Jour 1 — Séance Rencontre Woody (Toy Story)",
+   "cas": [
+    {
+     "condition": "séance retenue",
+     "titre": "Plan nominal",
+     "action": "Saisissez l'heure de la séance : l'étape 15 se recale et la suite suit.",
+     "cout": "Aucun, si la séance tombe avant 19h30."
+    },
+    {
+     "condition": "aucune séance compatible",
+     "aucun": true,
+     "titre": "Repli sans Woody",
+     "action": "L'étape 15 se décroche et reste en fin de journée, sans garantie qu'une séance y soit programmée.",
+     "cout": "Woody apparaît aussi dans TOGETHER au Studio Theater quand il est programmé, et les petits soldats verts déambulent dans Worlds of Pixar. La rencontre rapprochée, elle, est perdue."
+    }
+   ]
+  }
+ ],
+ "pointsDecision": [
+  {
+   "id": "pd-1",
+   "jour": 1,
+   "heure": "09:35",
+   "etape": "j1-e2",
+   "titre": "Attente de Frozen Ever After",
+   "declencheur": "Si l'attente affichée dépasse 45 min",
+   "action": "Tout glisse : le bloc flâner de l'étape 4 (village d'Arendelle, 50 min) absorbe le retard. Au-delà de 90 min, envisager le Premier Access : 15 à 35 € par personne. Les grands-parents n'ont pas besoin de monter."
+  },
+  {
+   "id": "pd-2",
+   "jour": 1,
+   "heure": "08:45",
+   "etape": "j1-e13",
+   "titre": "Confirmer la séance de Mickey et le Magicien",
+   "declencheur": "Si 17h25 n'existe pas dans l'appli",
+   "action": "La suivante est 18h30. Saisir 18h30 dans le paramètre 9 : le dîner et le nocturne se recalent tout seuls."
+  },
+  {
+   "id": "pd-3",
+   "jour": 2,
+   "heure": "08:45",
+   "etape": "j2-e15",
+   "titre": "Confirmer la séance PhilharMagique de 17h30",
+   "declencheur": "Si la séance de 17h30 n'existe pas",
+   "action": "Désactiver l'étape 15 et faire à la place Buzz Lightyear, Orbitron et Autopia : aucun horaire, ouverts jusqu'à la fermeture. On abandonne PhilharMagique sans rien casser."
+  },
+  {
+   "id": "pd-4",
+   "jour": 2,
+   "heure": "10:05",
+   "etape": "j2-e3",
+   "titre": "Réaction à Blanche-Neige",
+   "declencheur": "Si Blanche-Neige s'est mal passé (la sorcière)",
+   "action": "Sauter Les Voyages de Pinocchio dans le bloc libre qui suit : lui aussi est classé « peut effrayer ». Rester sur le Carrousel, Dumbo ou simplement les décors."
+  },
+  {
+   "id": "pd-5",
+   "jour": 2,
+   "heure": "18:40",
+   "etape": "j2-e18",
+   "titre": "A Million Splashes of Colour",
+   "declencheur": "À trancher sur place selon l'état de fatigue de l'enfant",
+   "action": "La séance de 19h10 est jouable en échangeant contre le Château (étape 18). Parade hybride : 3 chars montent Main Street, s'arrêtent au pied du Château pour un show-stop dansé de ~15 min, puis repartent. Le show-stop EST l'intérêt. SE PLACER SUR CENTRAL PLAZA, JAMAIS SUR MAIN STREET, sinon on rate l'essentiel. Annoncé jusqu'au 6 septembre 2026 : vous êtes dans la fenêtre."
+  }
+ ],
+ "rappels": [
+  {
+   "id": "r-2",
+   "titre": "Click & Collect",
+   "texte": "L'appli permet de commander dans certains comptoirs sans faire la queue. Avec 4 repas au comptoir et 5 personnes, c'est le levier le plus rentable des deux journées. À tester dès le premier repas. L'eau du robinet est servie gratuitement sur demande."
+  },
+  {
+   "id": "r-3",
+   "titre": "Restauration — le seul levier, c'est l'heure",
+   "texte": "Aucune table n'est réservable et il est trop tard pour en prendre une : les 4 repas du plan sont des comptoirs. Les files explosent entre 12h00 et 13h30, et juste après la parade. C'est exactement pour ça que le déjeuner est calé à 13h30 le jour 1 et à 14h00 le jour 2 — ne les avancez pas."
+  },
+  {
+   "id": "r-12",
+   "titre": "Ce qui peut l'impressionner, vu d'ensemble",
+   "texte": "Une seule vraie chute dans tout le plan : Frozen Ever After (jour 1, étape 2), deux petites descentes façon Pirates. Ratatouille n'a aucune chute réelle et a perdu sa 3D en mars 2026. Côté peur : Blanche-Neige (jour 2, étape 2) et Les Voyages de Pinocchio sont classés « peut effrayer les plus petits ». La Tanière du Dragon, Phantom Manor et Pirates of the Caribbean sont déjà écartés du plan."
+  },
+  {
+   "id": "r-16",
+   "titre": "Fantasyland ferme avant le parc",
+   "texte": "Certaines zones ferment plus tôt que l'heure officielle pour préparer le nocturne. Ne gardez jamais une attraction Fantasyland pour la toute fin de journée — ça vaut pour les étapes 18 et 19 du jour 2 si vous prenez du retard."
+  }
+ ],
+ "prerequis": [
+  {
+   "id": "pr-1",
+   "titre": "Batterie externe (une par téléphone)",
+   "quand": "les deux jours",
+   "detail": "L'appli Disneyland Paris vide le téléphone, et ce sont maintenant DEUX téléphones qui tentent les files virtuelles. Le second à plat, il ne reste qu'un réseau sur deux pour l'après-midi."
+  },
+  {
+   "id": "pr-6",
+   "titre": "Alarmes téléphone 5 min avant chaque vague",
+   "quand": "les deux jours",
+   "detail": "Six alarmes sur CHACUN des deux téléphones : 9h40, 13h55 et 17h25 les deux jours. Les vagues durent quelques minutes et les créneaux partent vite — rater l'heure, c'est rater la vague. L'app vous prévient aussi, mais elle suppose que vous la regardiez."
+  },
+  {
+   "id": "pr-2",
+   "titre": "Un change complet pour elle",
+   "quand": "jour 1",
+   "lie": [
+    "j1-e2",
+    "j1-e5"
+   ],
+   "detail": "Frozen Ever After (étape 2) et Célébration à Arendelle (étape 5) éclaboussent tous les deux. Ils tombent le matin : sans change, elle reste mouillée jusqu'au soir."
+  },
+  {
+   "id": "pr-3",
+   "titre": "Gourdes",
+   "quand": "les deux jours",
+   "detail": "L'eau du robinet est servie gratuitement sur demande dans tous les comptoirs. Sur deux journées à cinq, c'est le geste le plus rentable du séjour."
+  },
+  {
+   "id": "pr-4",
+   "titre": "Vêtement de pluie",
+   "quand": "les deux jours",
+   "detail": "Les files d'attente restent en extérieur. Un spectacle peut être annulé par la météo, pas une file."
+  },
+  {
+   "id": "pr-5",
+   "titre": "Poussette",
+   "quand": "les deux jours",
+   "detail": "Même à 5 ans. Deux jours à 12-18 000 pas avec les grands-parents : ça change la fin de journée. Location sur place possible si vous n'emportez pas la vôtre."
+  }
+ ],
+ "sourcePhotos": {
+  "titre": "julieears.com",
+  "url": "https://julieears.com/preparation/spots-photo-disneyland-paris/"
+ },
+ "fileAttente": {
+  "base": "https://api.themeparks.wiki/v1",
+  "destination": "e8d0207f-da8a-4048-bec8-117aa946b2c2",
+  "parcs": {
+   "1": "ca888437-ebb4-4d50-aed2-d227f7096968",
+   "2": "dae968d5-630d-4719-8b06-3d107e944401"
+  },
+  "intervalleMinutes": 5,
+  "avertissement": "Ces temps sont ceux AFFICHÉS par Disney, pas les temps réellement attendus. Disney surestime volontiers : un panneau à 60 min correspond souvent à 40 min réelles. Le biais joue en votre faveur — vous ne raterez pas un créneau à cause de lui — mais ne prenez pas le chiffre au pied de la lettre.",
+  "verifie": "2026-09-01",
+  "decalageMinutes": 1,
+  "_note_decalage": "Relevés calés sur l'horloge : à h+1 min puis tous les intervalleMinutes. Les vagues de files virtuelles s'ouvrent à des heures rondes ; arriver juste après réduit le délai.",
+  "filesVirtuelles": {
+   "1": [
+    {
+     "id": "9d20895f-b80c-48c1-8e74-0e153b762b37",
+     "nom": "Rencontre Royale (Elsa & Anna)",
+     "dansLePlan": true
+    },
+    {
+     "id": "9b00b4ad-e09b-4f68-a87a-8c4c9667eb6f",
+     "nom": "Rencontre avec un Personnage de Toy Story",
+     "dansLePlan": false
+    },
+    {
+     "id": "a3bb8c37-68ef-401f-b43c-5838bb79ca9d",
+     "nom": "Spider-Man Heroic Encounter",
+     "dansLePlan": false
+    },
+    {
+     "id": "968f5038-37d2-4fa4-9f34-9364c137bd2b",
+     "nom": "MARVEL Super Hero Heroic Encounter",
+     "dansLePlan": false
+    }
+   ],
+   "2": [
+    {
+     "id": "14924bd7-ffbf-47ee-a96e-2d5bd3fb5f25",
+     "nom": "Pavillon des Princesses",
+     "dansLePlan": true
+    },
+    {
+     "id": "44eff9fa-cd05-4a00-89b3-e6cec4682636",
+     "nom": "Meet Mickey Mouse",
+     "dansLePlan": false
+    }
+   ]
+  },
+  "_note_filesVirtuelles": "Liste fixe, relevée le 1er septembre 2026. L'API ne les expose que par intermittence — à 8h54 une seule sur six — donc on ne peut pas s'en servir pour construire l'écran de réglage."
+ },
+ "contraintes": {
+  "valideLe": "2026-09-01",
+  "priorite1": "NE RIEN RATER de la liste des attractions du plan, quel que soit l'ordre. Réordonner est libre ; SUPPRIMER exige l'accord explicite du parent.",
+  "premierAcces": {
+   "autorise": true,
+   "afficher": "le prix INDIVIDUEL seulement — le parent décide sur le moment qui monte.",
+   "quandLeProposer": "Seulement quand il fait VRAIMENT gagner beaucoup de temps ET qu'il permet au plan de tenir. Deux conditions : l'attente standby est très supérieure au budget de l'étape, ET la fenêtre de retour reste compatible avec la suite du plan. Un Premier Access dont le retour tombe hors du passage prévu dans la zone ne sauve rien : il déplace l'attraction.",
+   "contreExemple": "Frozen Ever After le 1er septembre à 10h : 16 €, mais retour 15h20-16h20 alors que le bloc Frozen se joue de 09h30 à 12h40. Inutile sans réorganiser toute la journée.",
+   "creneauImpose": "Vérifié le 1er septembre 2026 : le Premier Access One attribue une fenêtre de retour, on ne la choisit PAS. Elle avance au fil de la journée — acheter plus tard donne une fenêtre plus tardive, mais on ne décide pas laquelle.",
+   "unSeulALaFois": "On ne peut en détenir qu'un ; le suivant ne s'achète qu'une fois le créneau en cours commencé.",
+   "parPersonne": "Le prix est par personne de plus de 3 ans. Ni remboursable, ni échangeable, nominatif.",
+   "prefererAuSacrifice": "RÈGLE DU PARENT : si la seule façon de faire TOUTES les attractions prévues malgré le retard ou l'attente est de payer un Premier Access et de réorganiser les étapes autour de sa fenêtre imposée, alors il faut le PROPOSER. Mieux vaut payer que supprimer une étape. La décision reste au parent : proposer, chiffrer, ne jamais décider seul.",
+   "commentLeProposer": "Donner le prix par personne, la fenêtre de retour, ce que l'étape devient dans le nouvel ordre, et le temps de marche que ça implique. Comparer explicitement avec l'option « supprimer » qu'il remplace."
+  },
+  "repas": {
+   "fenetre": [
+    "13:00",
+    "14:30"
+   ],
+   "compressible": true,
+   "dureeCible": 80,
+   "plancher": 50,
+   "plancherAvecClickCollect": 40,
+   "note": "PLUS D'ETAPE REPAS. Le parent, le soir du 3 septembre : « ne mets pas de pauses dejeuner. On trouvera un moment pour prendre un sandwich pendant les moments de flanerie. » Les 80 minutes du dejeuner du jour 2 sont rendues a la journee ; les FLANER servent de moments repas et doivent donc rester repartis, jamais tous en fin de journee. Les fenetres ci-dessus ne valent plus que si une etape repas est reintroduite a sa demande.",
+   "fenetreDiner": [
+    "18:00",
+    "21:00"
+   ],
+   "noteDiner": "Le dîner commence entre 18h00 et 21h00. Valeur posée le 2 septembre 2026 : rien ne l'écrivait, et la recherche de plan a aussitôt proposé un dîner à 14h57. À ajuster si le parent veut une autre fenêtre.",
+   "plusDEtapeRepas": true
+  },
+  "departJour2": {
+   "cible": "20:00",
+   "maximum": "21:00",
+   "note": "Souple jusqu'à 21h00, mais tout dépassement doit être JUSTIFIÉ et APPROUVÉ par le parent sur le moment, selon la fatigue de l'enfant. Jamais décidé unilatéralement."
+  },
+  "substitutions": {
+   "autorise": true,
+   "aussiEnBonus": true,
+   "note": "Proposables pour combler un trou, ET spontanément quand l'occasion se présente : file courte, on passe devant. Ne jamais proposer ce que l'Excel écarte pour intensité ou peur."
+  },
+  "precedences": [
+   {
+    "avant": "j2-e6",
+    "apres": "j2-e7",
+    "pourquoi": "Le maquillage doit précéder la rencontre princesses : c'est pour les photos."
+   },
+   {
+    "avant": "j2-e6",
+    "apres": "j2-e13",
+    "pourquoi": "Et précéder La Valse Royale, pour la même raison."
+   }
+  ],
+  "jamaisToucher": "Les TRANSITION restent (marche + toilettes toutes les 2-3 h avec une enfant de 5 ans). Les FLÂNER et REPAS se réduisent jusqu'à leur plancher, jamais ne disparaissent.",
+  "ordreDesLeviers": [
+   "1. RÉORDONNER la fin de journée. Gratuit, sans perte. Toujours essayé en premier.",
+   "2. RÉDUIRE les FLÂNER et les REPAS jusqu'à leur plancher, jamais en dessous.",
+   "3. PREMIER ACCESS. Payant, mais il fait tenir le plan sans rien perdre.",
+   "4. SUPPRIMER une étape. DERNIER RECOURS, et seulement avec l'accord explicite du parent."
+  ],
+  "margeChevauchement": 15,
+  "noteMarge": "Un chevauchement jusqu'a 15 min au TOTAL est tolere. Les attentes du plan sont celles ANNONCEES par Disney, qui surestime : 45 annoncees valent souvent 30 reelles. Refuser une journee pour 7 minutes sur le papier, c'est refuser une journee qui passe en vrai. Pose par le parent le 2 sept 2026.",
+  "sensationsFortes": "Elle a supporte la chute de Frozen Ever After le 3 septembre. Pirates of the Caribbean est donc au plan et non plus une escapade solo. Le filtre reste son gout, pas sa taille : ni Big Thunder, ni Hyperspace Mountain, ni Tower of Terror."
+ }
+}

@@ -1,0 +1,34 @@
+# Dépendances et build : reconstruits par Docker.
+node_modules/
+frontend/dist/
+
+# SECRETS — ne doivent jamais être versionnés.
+.env
+.serveur.json
+collecteur/.env-mail
+
+# Données vivantes : historique du collecteur, état courant, sauvegardes.
+data/attentes/
+data/plans-precedents/
+data/journal.jsonl
+data/artefact-attentes.html
+*.avant-*
+*.bak
+*.tmp
+
+# Syncthing
+.stversions/
+
+# Syncthing : dossiers de service et fichiers de conflit.
+.stfolder/
+*.sync-conflict-*
+
+# État vivant de l'app : recréé au démarrage.
+data/etat-courant.json
+data/etats-precedents/
+
+# Plans officiels du parc : sous droits, à déposer soi-même (voir data/plans/LISEZ-MOI.txt).
+data/plans/*.webp
+data/plans/*.jpg
+data/plans/*.png
+data/plans/*.pdf

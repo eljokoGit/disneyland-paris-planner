@@ -1,0 +1,29 @@
+// Dependances et build, reconstruits par Docker.
+node_modules
+/frontend/dist
+
+// UN SEUL ECRIVAIN PAR FICHIER.
+// plan.json voyage par PUT /api/plan, qui valide et sauvegarde l'ancien.
+// Le faire aussi passer par Syncthing creait un conflit a chaque envoi, et
+// un conflit suspend le rebuild : le code restait bloque sans rien dire.
+/data/plan.json
+/data/etat-courant.json
+/data/journal.jsonl
+/data/attentes
+/data/plans-precedents
+// Les etats archives avant chaque remise a zero de journee : ecrits par le
+// serveur, comme les plans precedents. Les synchroniser ferait remonter des
+// fichiers de test du PC vers le serveur, et des conflits en retour.
+/data/etats-precedents
+
+// Propre a chaque machine.
+.env
+.serveur.json
+
+// Artefacts.
+.git
+*.log
+.syncthing.*
+*.tmp
+*.sync-conflict-*
+

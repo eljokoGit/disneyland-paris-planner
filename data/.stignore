@@ -1,0 +1,14 @@
+// Dossier Syncthing « disney-data »
+// Send & Receive des DEUX côtés : plan.json descend, etat-courant.json et
+// journal.jsonl remontent.
+//
+// Les écritures atomiques de l'app (fichier temporaire puis rename) passent
+// bien : Syncthing ne voit que le fichier final, jamais un JSON à moitié écrit.
+// Encore faut-il ne pas synchroniser les temporaires.
+
+.*.tmp
+.syncthing.*
+*.sync-conflict-*
+
+// Journaux du collecteur : bruit local, inutile de les synchroniser.
+collecteur*.log

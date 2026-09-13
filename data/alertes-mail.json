@@ -1,0 +1,19 @@
+{
+  "_lisezmoi": "Alertes par mail quand une file virtuelle rouvre. Le mot de passe ne vit PAS ici : il est dans collecteur/.env-mail, que vous remplissez vous-même.",
+  "actif": false,
+  "destinataires": [
+    "parent1@exemple.com",
+    "parent2@exemple.com"
+  ],
+  "expediteur": "plan@exemple.com",
+  "hote": "mail.exemple.com",
+  "port": 587,
+  "_note_port": "Vérifié le 01/09/2026 : 587 en STARTTLS, AUTH LOGIN. Le 465 est fermé, le 25 ne répond pas.",
+  "plageHoraire": [
+    "08:00",
+    "20:00"
+  ],
+  "_note_plage": "Aucun mail en dehors : une file qui rouvre à 23h ne sert personne.",
+  "_note_perimetre": "Toutes les files sont suivies par défaut. Les exclusions se règlent dans l'onglet Attentes de l'application, et valent pour le mail comme pour la bannière : une seule règle, pas deux.",
+  "_note_regle": "Chaque changement d etat est annonce : ouverture ET fermeture. Aucun delai, aucun filtre."
+}

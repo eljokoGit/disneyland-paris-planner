@@ -1,0 +1,20 @@
+# MODÈLE — service systemd pour le rebuild automatique.
+# Adapter CHEMIN et User, puis :
+#   sudo cp disney-app.service.modele /etc/systemd/system/disney-app-watch.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now disney-app-watch
+
+[Unit]
+Description=Rebuild automatique de l'app Plan Disneyland
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=CHANGEZ_MOI
+WorkingDirectory=/CHEMIN/VERS/Disney-app
+ExecStart=/CHEMIN/VERS/Disney-app/watch-and-rebuild.sh
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

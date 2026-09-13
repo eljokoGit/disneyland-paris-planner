@@ -1,0 +1,56 @@
+services:
+  disney-app:
+    build: .
+    image: disney-app:latest
+    container_name: disney-app
+    restart: unless-stopped
+    # Le conteneur écrit dans ./data, que Syncthing synchronise sous le compte
+    # du parent. Sans cet alignement d'uid, les fichiers deviennent root:root et
+    # Syncthing ne peut plus les remplacer quand plan.json descend du PC.
+    #   id -u && id -g   sur le serveur, puis renseigner PUID/PGID dans .env
+    user: "${PUID:-1000}:${PGID:-1000}"
+    environment:
+      PORT: 3000
+      TZ: Europe/Paris
+      TZ_APP: Europe/Paris
+      DATA_DIR: /app/data
+      # Lien secret : pas de compte, pas d'authentification lourde.
+      # Défini dans .env, jamais en dur ici.
+      APP_CLE: ${APP_CLE:?definir APP_CLE dans .env}
+    ports:
+      # Exposé sur la loopback uniquement : nginx fait le reverse proxy.
+      - "127.0.0.1:3083:3000"
+    volumes:
+      # §7.1 — les deux fichiers de données vivent dans le répertoire de travail,
+      # accessibles depuis une session Claude Code Remote avec des outils standard.
+      - ./data:/app/data
+
+  # Service INDÉPENDANT : redémarrer l'app ne doit pas trouer l'historique.
+  # Même image, autre commande, même volume de données.
+  collecteur:
+    build: .
+    image: disney-app:latest
+    container_name: disney-collecteur
+    restart: unless-stopped
+    user: "${PUID:-1000}:${PGID:-1000}"
+    working_dir: /app
+    command: ["node", "collecteur/service.js"]
+    environment:
+      TZ: Europe/Paris
+      DATA_DIR: /app/data
+      # Seul ce conteneur envoie les alertes par mail. Le collecteur qui tourne
+      # sur le PC du parent lit le même fichier de configuration (il est
+      # synchronisé) : sans ce drapeau, les deux enverraient, et chaque alerte
+      # arriverait en double.
+      MAIL_ACTIF: "1"
+    volumes:
+      - ./data:/app/data
+    # Le chien de garde interne sort en erreur s'il ne collecte plus : combiné
+    # à restart, ça relance tout seul. Le healthcheck, lui, rend l'état visible
+    # dans `docker ps` sans avoir à lire les logs.
+    healthcheck:
+      test: ["CMD", "node", "collecteur/sante.js"]
+      interval: 5m
+      timeout: 15s
+      retries: 2
+      start_period: 1m

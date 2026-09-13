@@ -1,0 +1,867 @@
+/* Lisible en plein soleil, à une main.
+   Contraste maximal, gros caractères, aucune nuance de gris clair sur blanc. */
+
+:root {
+  --fond: #ffffff;
+  --encre: #0a0a0a;
+  --encre-2: #333333;          /* le plus clair qu'on s'autorise sur blanc */
+  --trait: #0a0a0a;
+  --trait-fin: #c9c9c9;
+  --vert: #0a6b2d;
+  --bleu: #0b4f9e;
+  --orange: #a8410a;
+  --rouge: #a4001c;
+  --jaune: #ffd400;
+  --escapade: #ff0090;
+  --gris-bloc: #f0f0f0;
+  --rayon: 10px;
+  --barre: 76px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body, #racine { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.35;
+  -webkit-text-size-adjust: 100%;
+}
+
+.appli {
+  min-height: 100%;
+  padding-bottom: calc(var(--barre) + env(safe-area-inset-bottom));
+}
+
+.contenu { padding: 12px 14px 24px; max-width: 720px; margin: 0 auto; }
+
+/* ---------------------------------------------------------------- bandeaux */
+.bandeau {
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 6.5vw, 1.75rem);
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.bandeau small { display: block; font-size: 0.72em; font-weight: 700; opacity: 1; text-transform: none; margin-top: 2px; }
+.bandeau.a-lheure   { background: var(--vert); }
+.bandeau.en-avance  { background: var(--bleu); }
+.bandeau.en-retard  { background: var(--orange); }
+.bandeau.alerte     { background: var(--rouge); }
+.bandeau.neutre     { background: var(--encre-2); }
+
+.bandeau-hors-ligne {
+  background: var(--jaune); color: #0a0a0a; font-weight: 800;
+  padding: 8px 14px; text-align: center; font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------------- en-tête */
+.entete {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; padding: 10px 14px 0; max-width: 720px; margin: 0 auto;
+}
+.entete .jour { font-weight: 800; font-size: 1rem; }
+.entete .horloge { font-weight: 800; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- étape en cours */
+.en-cours { margin-top: 14px; }
+.en-cours .etiquette {
+  font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--encre-2);
+}
+.en-cours .titre {
+  font-size: clamp(1.9rem, 8.5vw, 2.7rem);
+  font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 4px 0 6px;
+}
+.en-cours .lieu { font-size: 1.15rem; font-weight: 700; color: var(--encre-2); }
+.en-cours .horaire {
+  font-size: 1.6rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 8px;
+}
+
+/* ---------------------------------------------------------------- blocs */
+.bloc {
+  border: 3px solid var(--trait); border-radius: var(--rayon);
+  padding: 12px 14px; margin-top: 14px;
+}
+.bloc.plein { background: var(--encre); color: #fff; }
+.bloc .bloc-titre {
+  font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.bloc .bloc-corps { font-size: 1.25rem; font-weight: 700; }
+.bloc .bloc-detail { font-size: 1rem; font-weight: 600; margin-top: 4px; }
+
+.avertissement {
+  border: 3px solid var(--rouge); background: #fff2f4; color: #6b0012;
+  border-radius: var(--rayon); padding: 12px 14px; margin-top: 12px;
+  font-weight: 700; font-size: 1.05rem;
+}
+.avertissement b { display: block; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+/* ---------------------------------------------------------------- boutons */
+/* Un <button> n'est pas un bloc ordinaire : `width: auto` le réduit à son
+   CONTENU au lieu de lui faire remplir la largeur. C'est ce qui avait rétréci
+   « Terminé » et « Revenir en arrière ». Il faut donc 100 % — et régler le
+   débordement là où il naît vraiment, c'est-à-dire dans les rares conteneurs
+   qui donnent des marges horizontales à leurs enfants. */
+.bouton {
+  display: block; width: 100%; border: 3px solid var(--trait); border-radius: var(--rayon);
+  background: var(--encre); color: #fff; font: inherit; font-weight: 800;
+  font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.02em;
+  padding: 20px 16px; margin-top: 14px; cursor: pointer;
+}
+.bouton:active { transform: translateY(1px); }
+.bouton.creux { background: #fff; color: var(--encre); }
+.bouton.petit { font-size: 1rem; padding: 13px 12px; }
+.bouton.rouge { background: var(--rouge); border-color: var(--rouge); }
+.bouton[disabled] { opacity: 0.45; }
+
+.rangee { display: flex; gap: 8px; }
+.rangee > * { flex: 1; margin-top: 10px; }
+
+/* ---------------------------------------------------------------- barre onglets */
+.onglets {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
+  display: flex; background: var(--encre);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.onglets button {
+  flex: 1; border: 0; background: none; color: #fff; font: inherit;
+  font-weight: 800; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0;
+  padding: 9px 1px 11px; cursor: pointer; opacity: 0.55;
+}
+.onglets button .pic { display: block; font-size: 1.15rem; margin-bottom: 2px; opacity: 1; }
+.onglets button.actif { opacity: 1; box-shadow: inset 0 4px 0 var(--jaune); }
+.onglets .pastille {
+  display: inline-block; min-width: 20px; padding: 0 5px; margin-left: 4px;
+  background: var(--jaune); color: #0a0a0a; border-radius: 10px; font-size: 0.75rem;
+}
+
+/* ---------------------------------------------------------------- timeline */
+.ligne {
+  display: grid; grid-template-columns: 76px 1fr; gap: 10px;
+  border-top: 2px solid var(--trait-fin); padding: 12px 0;
+}
+.ligne:first-child { border-top: 0; }
+.ligne.faite { opacity: 0.5; }
+.ligne.courante { background: #fffbe0; margin: 0 -14px; padding: 12px 14px; border-left: 6px solid var(--jaune); }
+.ligne.supprimee { opacity: 0.45; text-decoration: line-through; }
+
+.ligne .heures { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.05rem; }
+.ligne .heures .fin { display: block; font-weight: 700; color: var(--encre-2); }
+.ligne .heures .duree { display: block; font-size: 0.8rem; font-weight: 700; color: var(--encre-2); margin-top: 3px; }
+
+.ligne .titre-etape { font-weight: 800; font-size: 1.1rem; }
+.ligne .lieu-etape { font-size: 0.95rem; font-weight: 600; color: var(--encre-2); margin-top: 2px; }
+.ligne .note { margin-top: 8px; font-size: 0.98rem; color: var(--encre); }
+.ligne .num {
+  display: inline-block; min-width: 24px; text-align: center; margin-right: 6px;
+  background: var(--encre); color: #fff; border-radius: 5px; font-size: 0.8rem; padding: 1px 4px;
+}
+.ligne.ancree .num { background: var(--bleu); }
+
+.etiq {
+  display: inline-block; font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 3px 7px; border-radius: 5px; margin: 6px 6px 0 0;
+}
+.etiq.ancre { background: var(--bleu); color: #fff; }
+.etiq.chevauchement { background: var(--rouge); color: #fff; }
+.etiq.battement { background: var(--gris-bloc); color: var(--encre); border: 2px solid var(--trait-fin); }
+.etiq.pile-poil { background: var(--vert); color: #fff; }
+.etiq.enchaine { background: var(--gris-bloc); color: var(--encre-2); }
+.etiq.amortisseur { background: #e6eefc; color: var(--bleu); border: 2px solid var(--bleu); }
+.etiq.decrochee { background: var(--orange); color: #fff; }
+
+.replier {
+  border: 0; background: none; font: inherit; font-weight: 800; font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--bleu);
+  padding: 6px 0 0; cursor: pointer;
+}
+
+/* ---------------------------------------------------------------- réservations */
+.carte {
+  border: 3px solid var(--trait); border-radius: var(--rayon);
+  padding: 13px 14px; margin-top: 12px;
+}
+.carte.critique { border-color: var(--rouge); }
+.carte.faite { opacity: 0.5; border-color: var(--trait-fin); }
+.carte .quand {
+  display: inline-block; background: var(--encre); color: #fff; font-weight: 800;
+  font-variant-numeric: tabular-nums; padding: 3px 9px; border-radius: 5px; font-size: 0.95rem;
+}
+.carte.critique .quand { background: var(--rouge); }
+.carte .quoi { font-weight: 800; font-size: 1.15rem; margin-top: 8px; }
+.carte .pourquoi { font-size: 0.98rem; color: var(--encre); margin-top: 6px; }
+
+.section-titre {
+  font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  border-bottom: 3px solid var(--trait); padding-bottom: 5px; margin: 26px 0 4px;
+}
+
+/* ---------------------------------------------------------------- formulaires */
+input[type="time"], input[type="text"], select {
+  width: 100%; font: inherit; font-weight: 800; font-size: 1.2rem;
+  padding: 12px; border: 3px solid var(--trait); border-radius: var(--rayon);
+  background: #fff; color: var(--encre);
+}
+label { display: block; font-weight: 800; font-size: 0.95rem; margin-bottom: 5px; }
+
+.nature {
+  display: inline-block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 2px 6px; border-radius: 4px; margin-left: 6px;
+}
+.nature.confirme    { background: var(--vert); color: #fff; }
+.nature.releve      { background: var(--bleu); color: #fff; }
+.nature.hypothese   { background: var(--jaune); color: #0a0a0a; }
+.nature.a-confirmer { background: var(--rouge); color: #fff; }
+.nature.non-utilise { background: var(--gris-bloc); color: var(--encre-2); border: 2px solid var(--trait-fin); }
+
+.param { border-top: 2px solid var(--trait-fin); padding: 14px 0; }
+.param:first-of-type { border-top: 0; }
+.param .commentaire { font-size: 0.92rem; color: var(--encre-2); margin: 6px 0 8px; }
+
+.toast {
+  position: fixed; left: 12px; right: 12px; bottom: calc(var(--barre) + 12px + env(safe-area-inset-bottom));
+  background: var(--encre); color: #fff; font-weight: 800; padding: 14px 16px;
+  border-radius: var(--rayon); z-index: 30; text-align: center;
+}
+
+.vide { padding: 30px 0; font-weight: 700; color: var(--encre-2); text-align: center; }
+
+/* ---------------------------------------------------------------- alerte retard */
+.alerte-bloc {
+  border: 3px solid var(--rouge); background: #fff2f4;
+  border-radius: var(--rayon); padding: 14px; margin-top: 16px;
+}
+.alerte-corps { font-size: 1.1rem; font-weight: 700; color: #6b0012; }
+.alerte-corps + .alerte-corps { margin-top: 8px; }
+
+/* Une remarque, pas une alarme : « deux petites chutes » n'a pas à crier. */
+.remarque {
+  margin-top: 14px; padding-left: 12px;
+  border-left: 4px solid var(--trait-fin);
+  font-size: 1rem; color: var(--encre-2);
+}
+.remarque div + div { margin-top: 5px; }
+
+.ensuite {
+  margin-top: 18px; padding-top: 14px; border-top: 3px solid var(--trait);
+  font-size: 1.05rem; font-weight: 600; color: var(--encre-2);
+}
+.ensuite b { color: var(--encre); font-weight: 800; }
+
+/* ---------------------------------------------------------------- réordonner */
+.reordonner { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.reordonner .rang {
+  min-width: 30px; height: 30px; display: grid; place-items: center;
+  background: var(--encre); color: #fff; border-radius: 6px; font-weight: 800;
+}
+.reordonner .quoi-sac { flex: 1; font-weight: 800; font-size: 1.05rem; }
+.fleche {
+  width: 46px; height: 46px; border: 3px solid var(--trait); border-radius: 8px;
+  background: #fff; font-size: 1.2rem; font-weight: 800; cursor: pointer; padding: 0;
+}
+.fleche[disabled] { opacity: 0.3; }
+
+/* ---------------------------------------------------------------- note repliable */
+.note-etape {
+  margin-top: 10px; padding: 12px 14px;
+  background: var(--gris-bloc); border-radius: var(--rayon);
+  font-size: 1rem; color: var(--encre);
+}
+
+/* --------------------------------------------------- consigne vs remarque
+   Une consigne change ce qu'on fait sur place (où se placer, quelle entrée,
+   quoi vérifier). Elle doit se voir — sans être une alarme rouge.
+   Une remarque est une information : elle reste discrète. */
+.consigne {
+  margin-top: 14px; border: 3px solid var(--bleu); border-radius: var(--rayon);
+  overflow: hidden;
+}
+.consigne-titre {
+  background: var(--bleu); color: #fff; font-weight: 800; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px;
+}
+.consigne > div:not(.consigne-titre) {
+  padding: 11px 14px; font-weight: 700; font-size: 1.05rem; color: var(--encre);
+}
+.consigne > div + div { border-top: 2px solid var(--trait-fin); }
+
+.carte.ratee { opacity: 0.6; border-color: var(--orange); }
+.carte.ratee .quoi { text-decoration: line-through; }
+
+/* ---------------------------------------------------------------- plan du parc */
+.plan-parc { margin-top: 14px; }
+/* ENFANT DIRECT seulement : sans le « > », cette règle s'applique aussi au
+   calque de trajets posé sur le plan officiel, lui impose height:auto — donc un
+   carré — et une bordure. Le trait dépassait alors sous son point d'arrivée. */
+.plan-parc > svg { width: 100%; height: auto; display: block; border: 3px solid var(--trait); border-radius: var(--rayon); }
+.pp-fond { fill: #fff; }
+.pp-zone { fill: var(--gris-bloc); stroke: var(--trait-fin); stroke-width: 0.5; }
+.pp-zone.pp-actuelle { fill: var(--jaune); stroke: var(--trait); stroke-width: 1.2; }
+.pp-zone.pp-suivante { fill: #d8e6fb; stroke: var(--bleu); stroke-width: 1; }
+.pp-zone.pp-zone-escapade { fill: #ffd9ec; stroke: var(--escapade); stroke-width: 1; }
+.pp-nom {
+  font-size: 2.9px; font-weight: 800; fill: var(--encre-2);
+  text-anchor: middle; dominant-baseline: middle;
+}
+.pp-nom-actuelle { fill: #0a0a0a; }
+.pp-boussole text { font-size: 4px; font-weight: 800; fill: var(--encre-2); text-anchor: middle; }
+
+.pp-legende {
+  display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px;
+  font-size: 0.85rem; font-weight: 700; color: var(--encre-2);
+}
+.pp-legende i {
+  display: inline-block; width: 14px; height: 14px; border-radius: 3px;
+  margin-right: 5px; vertical-align: -2px; border: 2px solid var(--trait-fin);
+}
+.pp-legende i.pp-ici      { background: var(--jaune); border-color: var(--trait); }
+.pp-legende i.pp-suivant  { background: var(--bleu); border-color: var(--bleu); }
+.pp-legende i.pp-escapade { background: var(--escapade); border-color: var(--escapade); }
+
+.cardinal {
+  display: inline-block; margin-left: 8px; padding: 2px 8px;
+  background: var(--encre); color: #fff; border-radius: 5px;
+  font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+  vertical-align: 2px;
+}
+
+/* Une conséquence subie, pas une action : encadré neutre, aucun bouton. */
+.consequence {
+  margin-top: 10px; padding: 10px 12px;
+  background: #fff; border: 2px solid var(--trait-fin); border-radius: 8px;
+  font-size: 1rem; font-weight: 600; color: var(--encre);
+}
+
+/* La souplesse de l'ancre : une indication, pas une alarme de plus. */
+.souplesse {
+  margin-top: 10px; padding: 9px 12px;
+  background: #e6eefc; border-left: 4px solid var(--bleu); border-radius: 6px;
+  font-size: 1rem; font-weight: 700; color: var(--bleu);
+}
+.souplesse-detail { font-weight: 600; color: var(--encre-2); margin-top: 4px; font-size: 0.92rem; }
+
+/* ------------------------------------------------------------- spots photo */
+.spots-photo {
+  margin-top: 10px; padding: 12px 14px;
+  background: var(--gris-bloc); border-radius: var(--rayon);
+}
+.sp-titre {
+  font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--encre-2); margin-bottom: 8px;
+}
+.sp-ligne { font-size: 0.98rem; }
+.sp-ligne + .sp-ligne { margin-top: 9px; padding-top: 9px; border-top: 2px solid var(--trait-fin); }
+.sp-ligne b { font-size: 1.02rem; }
+.sp-ligne > div { color: var(--encre-2); margin-top: 2px; }
+.sp-source { margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: var(--encre-2); }
+
+/* Les liens d'une étape tiennent sur une ligne, sans casser les mots. */
+.liens-etape {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  margin-top: 8px; align-items: baseline;
+}
+.liens-etape .replier { padding: 0; white-space: nowrap; }
+
+/* Retard qui grignote seulement la marge d'avance : on informe, on n'alarme pas. */
+.alerte-bloc.calme { border-color: var(--orange); background: #fff6f0; }
+.alerte-bloc.calme .alerte-corps { color: #6b2a00; }
+.alerte-bloc.calme .bouton.rouge { background: var(--orange); border-color: var(--orange); }
+.sous-ligne { font-weight: 600; font-size: 0.95rem; margin-top: 3px; }
+
+/* Vague hors de portée : on la montre pour expliquer pourquoi on ne l'utilise pas. */
+.carte.impossible { border-color: var(--trait-fin); opacity: 0.7; }
+.carte.impossible .quand { background: var(--encre-2); text-decoration: line-through; }
+.carte.impossible .quoi { text-decoration: line-through; color: var(--encre-2); }
+
+.bloquee {
+  margin-top: 10px; padding: 9px 12px;
+  background: var(--gris-bloc); border-left: 4px solid var(--encre-2); border-radius: 6px;
+  font-size: 0.95rem; font-weight: 700; color: var(--encre-2);
+}
+
+/* ------------------------------------------------------------- escapade solo */
+.escapade {
+  margin-top: 16px; border: 3px solid var(--bleu); border-radius: var(--rayon);
+  overflow: hidden; padding-bottom: 12px;
+}
+.esc-titre {
+  background: var(--bleu); color: #fff; font-weight: 800; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px;
+}
+.escapade > *:not(.esc-titre) { margin: 0 14px; }
+.esc-cible { font-size: 1.2rem; font-weight: 800; margin-top: 10px; }
+.esc-lieu { font-size: 0.98rem; font-weight: 700; color: var(--encre-2); margin-top: 3px; }
+.esc-chiffres { font-size: 1.1rem; font-weight: 700; margin-top: 9px; }
+.esc-cout { font-size: 0.98rem; color: var(--encre-2); margin-top: 5px; }
+.esc-vigilance {
+  margin-top: 10px; padding: 9px 12px; background: #e6eefc; border-radius: 6px;
+  font-size: 0.95rem; font-weight: 700; color: var(--bleu);
+}
+.esc-rappel { margin-top: 9px; font-size: 0.92rem; color: var(--encre-2); }
+.esc-alerte {
+  margin-top: 10px; padding: 9px 12px; background: #fff2f4;
+  border: 2px solid var(--rouge); border-radius: 6px;
+  font-size: 0.95rem; font-weight: 700; color: #6b0012;
+}
+.escapade .bouton { margin-top: 12px; }
+.escapade.risque { border-color: var(--orange); }
+.escapade.risque .esc-titre { background: var(--orange); }
+.escapade.risque .esc-vigilance { background: #fff1e6; color: #6b2a00; }
+.escapade.faite { opacity: 0.55; }
+
+/* ------------------------------------------------- plan officiel (image) */
+.pp-onglets { display: flex; gap: 6px; margin-bottom: 8px; }
+.pp-onglets button {
+  flex: 1; border: 3px solid var(--trait); border-radius: 8px; background: #fff;
+  font: inherit; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;
+  letter-spacing: 0.03em; padding: 9px 6px; cursor: pointer; color: var(--encre);
+}
+.pp-onglets button.actif { background: var(--encre); color: #fff; }
+
+/* Le plan tient en entier : sans défilement, les deux repères et le trait
+   entre eux sont toujours visibles ensemble. C'est tout l'intérêt. */
+.pp-officiel {
+  position: relative; border: 3px solid var(--trait); border-radius: var(--rayon);
+  overflow: hidden; line-height: 0;
+}
+.pp-officiel img { display: block; width: 100%; height: auto; }
+/* Les trois points du plan, et les traits qui donnent la distance. */
+.pp-point {
+  position: absolute; width: 24px; height: 24px; margin: -12px 0 0 -12px;
+  border-radius: 50%; border: 4px solid #0a0a0a;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.9);
+}
+.pp-point.pp-ici      { background: var(--jaune); }
+.pp-point.pp-suivant  { background: var(--bleu); width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.pp-point.pp-escapade { background: var(--escapade); }
+
+.pp-officiel .pp-traces {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; border-radius: 0; pointer-events: none;
+}
+.pp-trait { fill: none; stroke-width: 4; stroke-linecap: round; }
+.pp-trait-suivant  { stroke: var(--bleu); stroke-dasharray: 7 7; }
+.pp-trait-escapade { stroke: var(--escapade); stroke-width: 5; stroke-dasharray: 3 7; }
+
+/* ------------------------------------------------------ temps d'attente */
+.attentes-entete {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 10px; margin: 14px 0 10px; padding-bottom: 10px;
+  border-bottom: 3px solid var(--trait);
+}
+.attentes-maj { font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 3px; }
+.attentes-tri { display: flex; gap: 4px; }
+.attentes-tri button {
+  border: 2px solid var(--trait); border-radius: 6px; background: #fff; font: inherit;
+  font-weight: 800; font-size: 0.72rem; text-transform: uppercase; padding: 6px 9px;
+  cursor: pointer; color: var(--encre);
+}
+.attentes-tri button.actif { background: var(--encre); color: #fff; }
+
+.attente-ligne {
+  display: grid; grid-template-columns: 62px 1fr 22px; gap: 12px; align-items: center;
+  border-top: 2px solid var(--trait-fin); padding: 10px 0;
+  /* La ligne est un bouton : on annule l'apparence native, on garde la sienne. */
+  width: 100%; background: none; border-left: 0; border-right: 0; border-bottom: 0;
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+}
+.attente-ligne:focus-visible { outline: 3px solid var(--bleu); outline-offset: 2px; }
+.attente-chevron { font-size: 1rem; color: var(--encre-2); justify-self: end; }
+.attente-moy { font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
+.attente-bloc.deplie .attente-ligne { border-bottom: 0; }
+.attente-ligne.du-plan { background: #fffbe0; margin: 0 -14px; padding: 10px 14px; }
+.attente-ligne.fermee { opacity: 0.55; }
+
+.attente-chiffre {
+  height: 52px; border-radius: 8px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem;
+  color: #fff; line-height: 1;
+}
+.attente-chiffre .unite { font-size: 0.62rem; font-weight: 700; margin-top: 2px; }
+.attente-chiffre.court   { background: var(--vert); }
+.attente-chiffre.moyen   { background: var(--orange); }
+.attente-chiffre.long    { background: var(--rouge); }
+.attente-chiffre.inconnu { background: var(--encre-2); }
+.attente-chiffre.off     { background: var(--trait-fin); color: var(--encre-2); }
+
+.attente-nom { font-weight: 800; font-size: 1.02rem; }
+.attente-statut { font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
+.attente-sr { font-size: 0.85rem; font-weight: 700; color: var(--bleu); margin-top: 2px; }
+.etiq-plan {
+  display: inline-block; background: var(--encre); color: #fff; font-size: 0.65rem;
+  font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 2px 6px; border-radius: 4px; margin-right: 6px; vertical-align: 2px;
+}
+
+/* --------------------------------------------- attentes sur une étape */
+.files {
+  margin-top: 14px; border: 3px solid var(--trait); border-radius: var(--rayon);
+  overflow: hidden; padding-bottom: 10px;
+}
+.files.danger { border-color: var(--rouge); }
+.files.fermee { border-color: var(--encre-2); }
+.files-titre {
+  background: var(--encre); color: #fff; font-weight: 800; font-size: 0.78rem;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px;
+}
+.files.danger .files-titre { background: var(--rouge); }
+.files-ligne { display: flex; gap: 10px; align-items: baseline; margin: 10px 14px 0; }
+.files-chiffre {
+  flex: 0 0 auto; min-width: 62px; text-align: center; padding: 4px 8px;
+  border-radius: 6px; font-weight: 800; font-size: 0.95rem; color: #fff;
+}
+.files-chiffre.court { background: var(--vert); }
+.files-chiffre.moyen { background: var(--orange); }
+.files-chiffre.long { background: var(--rouge); }
+.files-chiffre.inconnu { background: var(--encre-2); }
+.files-chiffre.off { background: var(--trait-fin); color: var(--encre-2); }
+.files-nom { font-weight: 700; font-size: 1rem; }
+.files-note { display: block; font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
+.files-note.danger { color: var(--rouge); }
+.files-conseil {
+  margin: 12px 14px 0; padding: 10px 12px; background: #fff2f4;
+  border-radius: 6px; font-size: 0.95rem; font-weight: 700; color: #6b0012;
+}
+.esc-attente { margin-top: 8px; font-size: 1rem; font-weight: 700; color: var(--bleu); }
+
+/* Le collecteur tourne à part : l'app ne peut pas le relancer, mais elle dit
+   quand il s'est tu. Un historique qui s'arrête en silence est le pire cas. */
+.collecteur-muet {
+  margin: 12px 0; padding: 12px 14px;
+  border: 3px solid var(--orange); background: #fff6f0; border-radius: var(--rayon);
+  font-size: 0.98rem; font-weight: 700; color: #6b2a00;
+}
+.collecteur-muet b { display: block; margin-bottom: 4px; }
+.collecteur-ok {
+  margin-top: 16px; font-size: 0.88rem; font-weight: 700; color: var(--encre-2);
+}
+
+.files-note.payant { color: var(--bleu); }
+.files-note.dispo  { color: var(--vert); }
+
+/* Escapades jour 2 : trois cibles, trois compositions de groupe, une décision
+   chiffrée au déjeuner. Le tableau s'affiche entier ; la ligne qui correspond
+   à l'attente du moment est la seule mise en avant. */
+.esc-groupe {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 6px 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+.esc-decision {
+  margin: 8px 0 4px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.35;
+}
+.esc-ligne {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  opacity: 0.55;
+}
+.esc-ligne .esc-si {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.esc-ligne .esc-alors { text-align: right; }
+.esc-ligne.retenue {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 3px 0 0 currentColor;
+}
+
+/* ------------------------------- détail d'une attraction, heure par heure */
+/* Ce que le collecteur a archivé. Le direct dit ce qu'il en est maintenant,
+   l'historique dit si c'est habituel. */
+.detail-heures {
+  padding: 12px 14px 14px; margin: 0 -14px 4px;
+  background: var(--gris-bloc);
+  border-top: 2px solid var(--trait-fin);
+}
+.detail-heures.vide-histo {
+  font-size: 0.9rem; font-weight: 700; color: var(--encre-2);
+}
+.dh-resume {
+  display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 10px;
+  font-size: 0.88rem; font-weight: 700; color: var(--encre-2);
+}
+.dh-resume b { color: var(--encre); font-variant-numeric: tabular-nums; }
+.dh-ligne {
+  display: grid; grid-template-columns: 34px 1fr 32px 50px; gap: 8px;
+  align-items: center; padding: 3px 0;
+  font-variant-numeric: tabular-nums;
+}
+.dh-heure { font-weight: 800; font-size: 0.85rem; color: var(--encre-2); }
+.dh-piste {
+  height: 16px; border-radius: 4px; background: var(--trait-fin); overflow: hidden;
+}
+.dh-barre { display: block; height: 100%; border-radius: 4px; }
+.dh-barre.court { background: var(--vert); }
+.dh-barre.moyen { background: var(--orange); }
+.dh-barre.long  { background: var(--rouge); }
+.dh-valeur { font-weight: 800; font-size: 0.95rem; text-align: right; }
+.dh-plage { font-size: 0.75rem; font-weight: 700; color: var(--encre-2); }
+.dh-ligne.actuelle .dh-heure { color: var(--encre); }
+.dh-ligne.actuelle { background: rgba(0, 0, 0, 0.05); border-radius: 4px; }
+.dh-note {
+  margin-top: 10px; font-size: 0.8rem; font-weight: 600;
+  color: var(--encre-2); line-height: 1.4;
+}
+
+.attente-fv {
+  font-size: 0.85rem; font-weight: 800; margin-top: 2px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.attente-fv.ouverte  { color: var(--vert); }
+.attente-fv.complete { color: var(--encre-2); }
+.fv-oeil {
+  background: var(--bleu); color: #fff; font-size: 0.62rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 4px;
+}
+.fv-surveiller {
+  padding: 12px 14px; margin: 0 -14px;
+  background: var(--gris-bloc); border-top: 2px solid var(--trait-fin);
+}
+.fvs-texte { font-size: 0.85rem; font-weight: 600; color: var(--encre-2); line-height: 1.4; margin-bottom: 8px; }
+
+/* ------------------------------------------- bloc « files virtuelles » */
+.bloc-fv {
+  border: 3px solid var(--trait); border-radius: var(--rayon);
+  padding: 12px 14px 14px; margin: 14px 0 6px;
+}
+.bloc-fv-titre {
+  font-weight: 800; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.bloc-fv-quoi {
+  font-size: 0.85rem; font-weight: 600; color: var(--encre-2);
+  line-height: 1.4; margin: 4px 0 10px;
+}
+.fv-ligne { border-top: 2px solid var(--trait-fin); padding: 10px 0 12px; }
+.fv-ligne.du-plan { background: #fffbe0; margin: 0 -14px; padding: 10px 14px 12px; }
+.fv-haut { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.fv-pastille {
+  font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 3px 7px; border-radius: 4px; color: #fff;
+}
+.fv-pastille.ouverte  { background: var(--vert); }
+.fv-pastille.complete { background: var(--encre-2); }
+.fv-nom { font-weight: 800; font-size: 1rem; }
+.fv-passage { font-weight: 800; color: var(--vert); margin-top: 4px; }
+.fv-hors-plan { font-size: 0.82rem; font-weight: 600; color: var(--encre-2); margin-top: 4px; }
+.fv-ligne .bouton { margin-top: 8px; }
+
+/* Décalage absorbé par l'avance : on le dit, on ne propose rien. */
+.alerte-bloc .calme-mot { font-weight: 700; opacity: 0.85; }
+
+/* Sur quoi repose la projection. Sans ça, « 21 min d'avance » ressemble à une
+   mesure alors que c'est une addition de durées prévues. */
+.hypothese {
+  margin-top: 10px; padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.05); border-radius: 8px;
+}
+.hyp-titre {
+  font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em; opacity: 0.7; margin-bottom: 6px;
+}
+.hyp-ligne { padding: 5px 0; font-size: 0.92rem; }
+.hyp-ligne + .hyp-ligne { border-top: 1px solid rgba(0, 0, 0, 0.08); }
+.hyp-haut { display: flex; align-items: baseline; gap: 8px; }
+.hyp-quoi { flex: 1 1 auto; font-weight: 700; }
+.hyp-duree { font-weight: 800; font-variant-numeric: tabular-nums; }
+.hyp-reel {
+  font-size: 0.84rem; font-weight: 600; opacity: 0.8; margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.hyp-ecart {
+  font-weight: 800; padding: 0 5px; border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.hyp-ligne.derape .hyp-reel { color: var(--rouge); opacity: 1; }
+.hyp-ligne.derape .hyp-ecart { background: var(--rouge); color: #fff; }
+.hyp-bilan {
+  margin-top: 8px; padding-top: 8px; border-top: 2px solid rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem; font-weight: 700;
+}
+.hyp-bilan.rouge { color: var(--rouge); font-weight: 800; }
+
+/* Repli quand navigator.clipboard n'existe pas (HTTP sur le réseau local) :
+   mieux vaut un texte sélectionnable qu'un « copié » qui ment. */
+.brief-panneau {
+  position: fixed; inset: 0; z-index: 50; padding: 16px;
+  background: rgba(0, 0, 0, 0.75); display: flex; align-items: center;
+}
+.brief-boite {
+  background: var(--fond); border-radius: var(--rayon); padding: 14px;
+  width: 100%; max-height: 90vh; display: flex; flex-direction: column; gap: 10px;
+}
+.brief-titre { font-weight: 800; font-size: 0.95rem; line-height: 1.35; }
+.brief-texte {
+  flex: 1 1 auto; min-height: 45vh; width: 100%; resize: none;
+  font-family: ui-monospace, monospace; font-size: 0.78rem; line-height: 1.4;
+  padding: 10px; border: 2px solid var(--trait); border-radius: 8px;
+  background: #fff; color: var(--encre);
+}
+.brief-boutons { display: flex; gap: 8px; }
+.brief-titre.ok { color: var(--vert); }
+
+.motif-note {
+  font-size: 0.82rem; font-weight: 600; color: var(--encre-2);
+  line-height: 1.4; margin: 6px 0 2px;
+}
+
+.champ-cle {
+  width: 100%; padding: 12px; font-size: 1rem; font-family: ui-monospace, monospace;
+  border: 2px solid var(--trait); border-radius: 8px; background: #fff; color: var(--encre);
+}
+
+/* Dans une rangée de boutons, `width: auto` les réduirait à leur contenu :
+   on leur rend une part égale. */
+.brief-boutons .bouton { flex: 1 1 0; }
+
+/* Escapade déjà utilisée : une ligne, pas une carte. Le parent est parti, il n'a
+   pas besoin qu'on lui redécrive l'attraction à chaque étape couverte. */
+.escapade-faite {
+  margin-top: 14px; padding: 10px 12px; border-radius: 8px;
+  background: var(--gris-bloc); border-left: 4px solid var(--bleu);
+  font-size: 0.92rem; font-weight: 700; color: var(--encre-2);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+}
+
+.esc-limite {
+  margin-top: 8px; padding: 8px 11px; border-radius: 6px;
+  background: #fff4e6; border-left: 4px solid var(--orange);
+  font-size: 0.93rem; font-weight: 700; color: var(--orange); line-height: 1.35;
+}
+.esc-limite-note { font-weight: 600; margin-top: 3px; color: var(--encre-2); }
+.escapade-faite { align-items: center; }
+.esc-limite-butoir { font-weight: 800; margin-top: 4px; }
+
+/* Cible de priorité 2 : un bonus, jamais mis au même niveau que la première. */
+.bonus-escapade {
+  margin-top: 10px; padding: 9px 12px; border-radius: 6px;
+  background: var(--gris-bloc); border-left: 4px solid var(--encre-2);
+}
+.bonus-titre {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--encre-2);
+}
+.bonus-nom { font-weight: 800; font-size: 1.02rem; margin-top: 2px; }
+.bonus-detail { font-size: 0.9rem; font-weight: 600; color: var(--encre-2); margin-top: 2px; }
+.bonus-attente { font-size: 0.92rem; font-weight: 700; margin-top: 4px; }
+.ec-bonus { font-size: 0.85rem; font-weight: 600; margin-top: 4px; opacity: 0.85; }
+.attente-horaire { font-size: 0.82rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
+
+.bonus-ligne + .bonus-ligne { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--trait-fin); }
+.bonus-rang {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; margin-right: 7px; border-radius: 50%;
+  background: var(--encre-2); color: #fff; font-size: 0.72rem; font-weight: 800;
+}
+
+/* Le plan ne tient plus : au-dessus de tout, avant même l'étape en cours. */
+.plan-casse {
+  background: var(--rouge); color: #fff; padding: 14px 16px; margin: 0 0 2px;
+  border-top: 5px solid #0a0a0a; border-bottom: 5px solid #0a0a0a;
+}
+.pc-titre {
+  font-weight: 800; font-size: clamp(1.2rem, 5vw, 1.5rem);
+  text-transform: uppercase; line-height: 1.1;
+}
+.pc-quoi { font-size: 0.95rem; font-weight: 600; margin-top: 6px; line-height: 1.35; }
+.pc-quoi-faire { font-size: 0.95rem; font-weight: 800; margin-top: 8px; }
+.plan-casse .bouton { background: #fff; color: var(--rouge); border-color: #fff; margin-top: 10px; }
+
+/* Séance ancrée absente des horaires du jour : l'ancre est fausse. */
+.seance-bougee {
+  background: var(--jaune); color: #0a0a0a; padding: 13px 16px; margin: 0 0 2px;
+  border-top: 4px solid #0a0a0a; border-bottom: 4px solid #0a0a0a;
+}
+.sb-titre { font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.sb-quoi { font-size: 1rem; font-weight: 700; margin-top: 4px; line-height: 1.3; }
+.sb-reelles { font-size: 0.92rem; font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.sb-quoi-faire { font-size: 0.92rem; font-weight: 800; margin-top: 6px; }
+
+/* Paramètre en lecture seule : relevé par le collecteur, pas à ressaisir. */
+.param.lecture { opacity: 0.9; }
+.param-valeur {
+  font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; margin-top: 2px;
+}
+
+/* Une file virtuelle réservable, dans l'onglet Résas. */
+.file-resa {
+  border: 3px solid var(--trait-fin); border-radius: var(--rayon);
+  padding: 11px 13px; margin-top: 10px;
+}
+.file-resa.du-plan { border-color: var(--trait); background: #fffbe0; }
+
+/* Résas : deux listes, les six files dans chacune. */
+.fv-ligne-alerte, .fv-ligne-creneau {
+  border: 3px solid var(--trait-fin); border-radius: var(--rayon);
+  padding: 10px 12px; margin-top: 8px;
+}
+.fv-ligne-alerte.du-plan, .fv-ligne-creneau.du-plan { border-color: var(--trait); background: #fffbe0; }
+.fv-ligne-alerte { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.fv-ligne-alerte .bouton { width: auto; flex: 0 0 auto; margin-top: 0; white-space: nowrap; }
+.fva-nom { font-weight: 800; font-size: 1rem; display: flex; align-items: baseline; gap: 8px; }
+.etiq-jour {
+  flex: 0 0 auto; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.05em;
+  padding: 2px 6px; border-radius: 4px; background: var(--encre); color: #fff;
+}
+.fvc-etiquette { display: block; font-size: 0.82rem; font-weight: 700; color: var(--encre-2); margin-top: 6px; }
+.fvc-obtenu {
+  margin-top: 6px; font-size: 0.92rem; font-weight: 700;
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+}
+
+/* Escapade : quatre lignes, le reste derrière « Détails ». */
+.esc-lieu-inline { font-weight: 700; font-size: 0.9rem; color: var(--encre-2); }
+.esc-verdict { margin-top: 8px; padding: 8px 11px; border-radius: 6px; font-size: 1rem; font-weight: 700; }
+.esc-verdict.ok { background: #e3f3e8; color: var(--vert); }
+.esc-verdict.non { background: #fbe6e9; color: var(--rouge); }
+.esc-verdict.inconnu { background: var(--gris-bloc); color: var(--encre-2); }
+.esc-ligne-cle { margin-top: 6px; font-size: 0.98rem; font-weight: 600; }
+.escapade .rangee .bouton { width: auto; flex: 1 1 0; margin-top: 0; }
+.esc-details { margin-top: 12px; padding-top: 10px; border-top: 2px solid var(--trait-fin); }
+.seance-bougee .bouton { background: #0a0a0a; color: var(--jaune); border-color: #0a0a0a; margin-top: 8px; }
+
+/* ----------------------------------------- largeur des boutons, par contexte */
+/* Dans une rangée, c'est flex qui répartit : une largeur fixe l'en empêcherait. */
+.rangee .bouton, .brief-boutons .bouton { width: auto; flex: 1 1 0; }
+/* Le bloc escapade donne 14px de marge à chacun de ses enfants : sans ce calcul
+   le bouton mesure 100 % + 28px et se fait rogner à droite. */
+.escapade > .bouton { width: calc(100% - 28px); }
+/* Ligne d'alerte : sans min-width, un nom long pousse le bouton hors du cadre. */
+.fv-ligne-alerte > *:first-child { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+
+/* ------------------------------------ le mot du parent, dans le panneau brief */
+/* Il prime sur tout le reste du brief : il se voit, et il ne se confond pas
+   avec le texte genere au-dessus. */
+.brief-etiquette {
+  display: block; margin-top: 12px; font-weight: 800; font-size: 0.95rem;
+}
+.brief-mot {
+  width: 100%; box-sizing: border-box; margin-top: 6px; padding: 10px;
+  border: 3px solid var(--trait); border-radius: var(--rayon);
+  font: inherit; font-size: 1rem; line-height: 1.35; resize: vertical;
+}
+.brief-mot:focus { outline: 3px solid var(--encre); outline-offset: 2px; }
+/* Une séance choisie parmi plusieurs n'est pas un rendez-vous : elle peut se
+   déplacer sur une autre séance. La distinguer évite de croire la journée
+   plus figée qu'elle ne l'est. */
+.etiq.seance-choisie { background: #fff; color: var(--encre); border: 2px solid var(--trait); }
