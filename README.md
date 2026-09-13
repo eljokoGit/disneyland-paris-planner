@@ -1,210 +1,154 @@
-# Plan Disneyland Paris — 3 et 4 septembre 2026
+# Disneyland Paris Two-Day Planner
 
-App mobile pour piloter deux journées de parc à une main, en plein soleil, avec
-une enfant de 5 ans dans l'autre bras.
+*[Version française](README.fr.md)*
 
-> **À propos de ce dépôt.** Projet personnel, partagé tel quel après le voyage.
-> Les données de la famille sont anonymisées, les adresses et le serveur
-> remplacés par des exemples (`exemple.com`, `mon-serveur`). Les plans officiels
-> du parc ne sont pas inclus : ils sont sous droits (voir `data/plans/LISEZ-MOI.txt`).
-> Les alertes mail sont désactivées dans `data/alertes-mail.json`.
+A phone-first web app to run two full days at Disneyland Paris — one hand free,
+in the sun, with a five-year-old in the other arm.
+
+**Success criterion:** at 3:12 pm on day one, take out your phone and know in
+three seconds whether you are on time and what comes next.
+
+> **About this repository.** A personal project, shared as-is after the trip
+> (3–4 September 2026). Family details are anonymised, and the server and email
+> addresses are replaced with placeholders (`exemple.com`, `mon-serveur`). The
+> official park maps are not included because they are copyrighted — see
+> `data/plans/LISEZ-MOI.txt`. Email alerts are switched off in
+> `data/alertes-mail.json`.
 >
-> Pour l'essayer en local : `npm install` dans `backend/` et `frontend/`,
-> `npm run build` dans `frontend/`, puis `node backend/server.js` et
-> http://localhost:3000. Sans clé (`APP_CLE` vide), l'accès est libre.
+> The app runs in **French and Spanish**. The code, its comments and the plan
+> data are written in French.
 
-**Critère de réussite** : à 15h12 le jeudi, sortir son téléphone et savoir en
-trois secondes si on est dans les temps et ce qu'on fait ensuite.
+## Quick start
 
-## Démarrer en local
+Requires Node.js 22.
 
 ```bash
-cd backend && npm install && cd ../frontend && npm install && npm run build
-cd ../backend && node server.js      # http://localhost:3000
+cd backend && npm install
+cd ../frontend && npm install && npm run build
+cd ../backend && node server.js        # http://localhost:3000
 ```
 
-En développement, deux terminaux : `node --watch server.js` d'un côté,
-`npm run dev` de l'autre (Vite proxifie `/api` vers le port 3000).
+With `APP_CLE` left empty, no access key is required. For development, run
+`node --watch server.js` in `backend/` and `npm run dev` in `frontend/` (Vite
+proxies `/api` to port 3000).
 
-## Déployer sur mon-serveur
+## The five screens
 
-Le code et les données arrivent sur le serveur par **Syncthing**, sur le
-tailnet. Deux dossiers, parce qu'ils n'ont pas le même régime :
+- **Now** (*Maintenant*) — 90% of the use. A banner answers one question at a
+  glance: on time, early or late, and how many minutes until the next fixed
+  appointment. Below it: the current step in large type, a **Done** button, an
+  undo, the next step, the note, a park map and nearby photo spots. When a delay
+  truly threatens an appointment, and only then, the app shows what it costs and
+  which activity could be dropped. Otherwise it stays quiet.
+- **Day** (*Journée*) — the full timeline, with anchored steps and buffers
+  (walks, free time, meals) marked. At the bottom: the order in which
+  activities get sacrificed, re-orderable, and the day's decision points.
+- **Waits** (*Attentes*) — every wait time in the park, live, with the hourly
+  history collected over previous days.
+- **Bookings** (*Résas*) — virtual queues: email alerts per queue, and the slot
+  you obtained. Entering a slot re-schedules the whole day around it.
+- **Settings** (*Réglages*) — language (per phone), the state to copy for
+  Claude, and the day's log.
 
-| Dossier | Windows | Serveur | Pourquoi |
-|---|---|---|---|
-| `disney-code` (racine) | Send Only | Receive Only | le code ne bouge que dans un sens, aucun conflit possible |
-| `disney-data` (`data/`) | Send & Receive | Send & Receive | `plan.json` descend, `etat-courant.json` et `journal.jsonl` remontent |
+## How it works
 
-Procédure complète : [`deploiement/syncthing.md`](deploiement/syncthing.md).
-Contrat de propriété des fichiers : [`data/README.md`](data/README.md).
+- **One engine, both sides.** `shared/moteur.js` computes the schedule and is
+  imported as-is by the server *and* the browser, so the phone keeps
+  recalculating when the network drops, without ever diverging from the server.
+- **Anchors.** Only two things are fixed: a virtual-queue slot you actually
+  obtained, and a show with a single performance. Everything else can move. A
+  slot that is not yet obtained anchors nothing.
+- **The clock, not the tap.** Delay is measured against the clock, never
+  against when someone pressed a button.
+- **Hard rules.** `shared/contraintes.js` holds 16 rules (nothing silently
+  dropped, meal windows, walking times, real showtimes, opening hours, toilet
+  breaks…). A plan that breaks a hard rule is refused by the server and nothing
+  is written. Every replaced plan is backed up.
+- **Wait-time collector.** `collecteur/` is a separate service that reads
+  [ThemeParks.wiki](https://themeparks.wiki) every 5 minutes — standby and Single
+  Rider waits, Premier Access prices and return windows, virtual queues,
+  showtimes, per-attraction hours — archives everything, and emails when a
+  virtual queue opens or closes. It is kept apart on purpose: redeploying the app
+  never leaves a hole in the history.
+- **Bad park network.** Every action applies locally first, then syncs. Failed
+  sends wait in a `localStorage` queue replayed in order; the last snapshot is
+  cached so the app opens offline. Updates reach every phone live over SSE.
 
-Puis, sur le serveur :
+## Languages
+
+The interface and the plan content exist in French and Spanish. French is the
+key: the code calls `t('Dans les temps')`, the Spanish lives in
+`frontend/src/i18n/es.js` (interface) and `frontend/src/i18n/plan-es.json` (plan
+texts). A missing translation falls back to French. List what is missing with:
 
 ```bash
-cp .env.exemple .env      # APP_CLE (openssl rand -hex 16), PUID/PGID (id -u ; id -g)
-docker compose up -d --build   # démarre l'app ET le collecteur
-./watch-and-rebuild.sh &  # rebuild auto quand le code synchronisé change
+node outils/verifier-traductions.mjs --liste
 ```
 
-`docker compose` lance deux conteneurs : l'application, et le **collecteur** de
-temps d'attente, volontairement séparé pour que l'historique ne soit pas
-interrompu quand on redéploie l'app.
+The recalculation text for Claude and the "state to copy" stay in French on
+purpose — that is the language the planning procedure reads.
 
-Le conteneur écoute sur `127.0.0.1:3021`, nginx fait le reverse proxy.
+## Planning with Claude Code
 
-`PUID`/`PGID` doivent correspondre au compte qui fait tourner Syncthing : le
-conteneur écrit dans `data/`, et si les fichiers deviennent `root:root`,
-Syncthing ne peut plus y appliquer les mises à jour venant du PC.
+There is no feedback system in the app. During the day, you talk to Claude
+directly: **Copy the situation for Claude** produces a brief, and the skill in
+`.claude/skills/recalcul-plan/` describes how a plan is recalculated, checked
+and pushed (`PUT /api/plan`). `data/README.md` describes who owns which file.
 
-**Le sous-domaine n'est pas choisi.** Lancer `deploiement/inspecter-serveur.sh`
-sur mon-serveur pour retrouver la convention en place, valider le nom,
-puis remplir `deploiement/nginx-disney.conf.modele` et lancer certbot. Le bloc
-`location /api/stream` est indispensable : sans lui nginx bufferise le flux SSE
-et le rechargement à chaud ne remonte plus jusqu'au téléphone.
+## Deployment
 
-L'accès se fait par lien secret : `https://<domaine>/?k=<APP_CLE>`. La clé est
-mémorisée dans le navigateur, l'URL est nettoyée après le premier chargement.
-
-## Les cinq écrans
-
-- **Maintenant** — 90 % de l'usage, et volontairement pauvre. Un bandeau qui dit
-  d'un coup d'œil si on est dans les temps et combien de minutes il reste dans le
-  créneau en cours, l'activité en cours en très gros avec
-  son créneau prévu, un bouton **Terminé**, un retour arrière en cas de clic
-  malheureux, et l'activité suivante. La note complète est là mais repliée. Les
-  réserves du type « deux petites chutes » sont une remarque discrète ; les
-  consignes qui changent ce qu'on fait sur place — où se placer pour le nocturne,
-  quelle entrée du château, quelle séance vérifier — ressortent en bleu.
-  Un lien discret **Annulé ou fermé ?** permet de sortir du plan un spectacle ou
-  une attraction annulée, avec son motif. Le point cardinal de la zone est
-  affiché à côté du lieu, **Où est-ce ?** ouvre le plan du parc — le plan
-  officiel déposé dans `data/plans/` s'il existe, sinon un schéma des lands —
-  avec jusqu'à trois repères reliés par un trait : jaune où l'on est, bleu où
-  l'on va, magenta la cible d'une escapade solo. **Photo** liste les spots photo
-  de la zone.
-
-  L'app compare l'heure réelle au créneau de l'activité en cours. Elle ne dit
-  rien tant que la contrainte suivante tient — prochaine ancre, ou heure de fin
-  de journée quand il n'y a plus d'ancre. Quand elle ne tient plus, et seulement
-  là, elle distingue deux choses :
-
-  - **une information**, sans bouton : ce que le retard coûte au temps libre ou
-    au repas à venir (« village d'Arendelle : 10 min au lieu de 50, tu devras
-    partir à 12h00 »). Écourter un temps libre n'est pas une action dans l'app,
-    c'est simplement partir plus tôt — le bouton Terminé s'en charge.
-  - **une décision**, avec un bouton : supprimer une activité, dans l'ordre de
-    sacrifice. C'est le seul levier réel, parce que c'est le seul qui libère du
-    temps qui n'existait pas.
-
-  Une suppression réorganise la journée : prévenir Claude en session Remote pour
-  qu'il refasse le planning à partir de la situation réelle.
-- **Journée** — la timeline complète. Début / fin / durée / état de contrôle /
-  lieu / étape / note dépliable. Les étapes ancrées sont visuellement distinctes,
-  les amortisseurs (transition, flâner, repas) sont étiquetés comme tels.
-  En bas : l'ordre de sacrifice, **réordonnable à la flèche**, et les points de
-  décision du jour.
-- **Attentes** — tous les temps d'attente du parc du jour, triés par attente
-  croissante, les attractions du plan surlignées, les fermées signalées et non
-  masquées, avec l'heure du dernier relevé. Données ThemeParks.wiki, collectées
-  côté serveur toutes les 5 min.
-- **Résas** — les files virtuelles des deux parcs : les alertes par mail, file par
-  file, et la saisie de l'heure obtenue. Saisir un créneau recale l'étape ancrée
-  et toute la journée suit.
-- **Réglages** — la langue (français ou espagnol, propre à chaque téléphone),
-  l'état à copier pour Claude et le journal de la journée.
-
-**Langues.** L'interface et le contenu du plan existent en français et en
-espagnol. Le français sert de clé : `t('Dans les temps')` dans le code,
-`frontend/src/i18n/es.js` pour l'interface, `frontend/src/i18n/plan-es.json`
-pour les textes de `plan.json`. Une phrase non traduite s'affiche en français.
-`node outils/verifier-traductions.mjs --liste` dit ce qui manque — à relancer
-après chaque modification du plan ou de l'interface. Le texte de recalcul pour
-Claude et l'état à copier restent en français : c'est la langue dans laquelle
-la procédure les lit.
-
-Désactivés le 13 septembre 2026 : l'onglet **Prépa** (sac et réglages de l'appli
-Disney) et les trois notifications de l'écran Maintenant — approche d'une vague
-de file virtuelle, rappel du Click & Collect à l'entrée, « il faut partir
-maintenant ». Les alertes **par mail** du collecteur, elles, restent.
-
-## Architecture
-
-```
-collecteur/     service indépendant de collecte des temps d'attente
-data/           plan.json, etat-courant.json, journal.jsonl, README.md
-                attentes/  historique écrit par le collecteur
-                plans/  ← déposer ici le plan officiel (jour1.jpg, jour2.pdf…)
-                └── dossier Syncthing « disney-data », volume monté dans le
-                    conteneur, éditable en session Claude Code Remote
-shared/         moteur.js — le calcul des horaires, importé par les DEUX côtés
-backend/        Express, écritures atomiques, fs.watch + SSE
-frontend/       React + Vite, cache local + file d'attente hors ligne
-deploiement/    syncthing.md, modèles nginx / systemd, inspection du serveur
-```
-
-`shared/moteur.js` est le cœur : il calcule les horaires, détecte les
-chevauchements et produit le résumé texte. Il est importé tel quel par le
-serveur **et** par le navigateur, ce qui permet au téléphone de recalculer seul
-quand le réseau tombe, sans jamais diverger du serveur.
-
-## Tolérance au réseau
-
-Le réseau est mauvais dans les parcs. Toute action est appliquée localement
-immédiatement, puis envoyée. Si l'envoi échoue, elle part dans une file
-`localStorage` rejouée dans l'ordre dès que le serveur redevient joignable ; un
-bandeau jaune indique le nombre d'actions en attente. Le dernier instantané est
-mis en cache, donc l'app s'ouvre même hors ligne.
-
-## Pilotage par Claude Code Remote
-
-Il n'y a **pas** de système de feedback dans l'app. Pendant la journée, le parent
-parle directement à Claude depuis son téléphone. Le contrat est décrit dans
-[`data/README.md`](data/README.md) : `plan.json` est édité par Claude,
-`etat-courant.json` est écrit par l'app, `journal.jsonl` garde la trace.
-
-Le PC Windows, toujours allumé sous Claude Desktop, est le poste de pilotage :
-la session Remote s'y exécute, j'édite `data/plan.json`, Syncthing pousse au
-serveur. Une dizaine de secondes jusqu'au téléphone du parent.
-
-Une seule commande pour comprendre la situation :
+The original setup ran on a small home server:
 
 ```bash
-curl -s localhost:3021/api/etat
+cp .env.exemple .env           # APP_CLE, PUID/PGID
+docker compose up -d --build   # starts the app AND the collector
+./watch-and-rebuild.sh &       # rebuilds when synced code changes
 ```
 
-Quand `plan.json` change sur le PC, Syncthing le pousse au serveur, qui le
-détecte en moins de 3 s et le propage aux téléphones. Pas de rebuild, pas de
-redéploiement, pas de rafraîchissement à demander — `watch-and-rebuild.sh`
-ignore délibérément `data/`.
+Access goes through a secret link, `https://<domain>/?k=<APP_CLE>`. An nginx
+template is in `deploiement/nginx-disney.conf.modele`; the `/api/stream` block is
+required, or nginx buffers the live updates. Code and data were synced from a
+Windows PC with Syncthing — see `deploiement/syncthing.md`.
+
+## Project layout
+
+```
+backend/      Express server: API, atomic writes, file watching, SSE
+frontend/     React + Vite, offline cache and action queue, i18n
+shared/       moteur.js (schedule engine), contraintes.js (rules), brief.js
+collecteur/   standalone wait-time collector and email alerts
+data/         plan.json (the two days), alertes-mail.json, README.md
+deploiement/  nginx / systemd templates, Syncthing notes, server inspection
+outils/       CLI, plan search, tests, translation check
+```
+
+## Tests and tools
+
+```bash
+node outils/test-journee.mjs          # day reset at midnight
+node outils/test-garde-journee.mjs    # a started day is never wiped
+node outils/verifier-traductions.mjs  # translation coverage
+node outils/chercher-plan.mjs 1       # try every showtime combination for day 1
+```
 
 ## API
 
-| Méthode | Route | Effet |
+| Method | Route | Effect |
 |---|---|---|
-| GET | `/api/etat` | résumé **texte** lisible par un humain |
-| GET | `/api/snapshot` | plan + état + journées calculées (JSON) |
-| GET | `/api/stream` | SSE : plan rechargé, état modifié |
-| GET | `/api/journal` | le journal complet |
-| GET | `/api/plans-precedents` · `/:fichier` | liste des sauvegardes de plan / lecture d'une sauvegarde sans l'appliquer |
-| POST | `/api/etape/:id/terminee` | avance le pointeur d'une étape |
-| POST | `/api/etape/:id/reprendre` | annule « terminée » |
-| POST | `/api/etape/:id/supprimer` · `/restaurer` | coupe volontaire du jour / remise au plan (défait aussi un retrait écrit dans le plan) |
-| POST | `/api/etape/:id/annuler` | `{ motif }` — annulation subie (météo, panne, complet) |
-| POST | `/api/etape/:id/retablir` | annule l'annulation |
-| POST | `/api/etape/:id/decrocher` | l'étape quitte son ancre, repasse en flottante |
-| POST | `/api/etape/:id/duree` | `{ minutes }` — raccourcir un flâner ou un repas |
-| POST | `/api/sacrifice` | `{ jour, ordre }` — réordonner les activités sacrifiables |
-| POST | `/api/parametre/:id` | `{ valeur: "HH:MM" }`, vide = revenir au plan |
-| POST | `/api/creneau/:id` | `{ obtenu, heure }` |
-| POST | `/api/jour` | `{ jour: 1 \| 2 }` |
-| GET | `/api/plan-parc/:jour` | plan officiel déposé dans `data/plans/`, s'il existe |
-| GET | `/api/attentes/:jour` | temps d'attente en direct de tout le parc |
-
-## Source des données
-
-`Disneyland-Paris-plan-2-jours_18.xlsx`, 10 onglets. Les horaires de spectacles
-ont été **relevés dans l'application Disneyland Paris pour ces deux dates
-précises** (jeudi et vendredi étaient identiques) — ce ne sont pas des
-estimations. Les 10 étapes ancrées du plan reconstituent l'Excel au poil :
-jour 1 08h45 → 22h10, jour 2 08h45 → 20h00, les 10 ancres « pile poil ».
+| GET | `/api/etat` | human-readable summary (text) |
+| GET | `/api/snapshot` | plan + state + computed days (JSON) |
+| GET | `/api/stream` | SSE: plan reloaded, state changed |
+| GET | `/api/journal` | full log |
+| GET | `/api/attentes/:jour` | live wait times for the whole park |
+| GET | `/api/historique/:jour` | hourly averages from the collected history |
+| GET | `/api/plans-precedents` · `/:fichier` | list plan backups / read one without applying it |
+| PUT | `/api/plan` | replace the plan (checked against the rules) |
+| POST | `/api/plan/verifier` | check a plan without saving it |
+| POST | `/api/etape/:id/terminee` · `/reprendre` | mark a step done / undo |
+| POST | `/api/etape/:id/supprimer` · `/restaurer` | drop a step for the day / put it back |
+| POST | `/api/etape/:id/annuler` · `/retablir` | cancellation (weather, closure, full) / undo |
+| POST | `/api/etape/:id/duree` | `{ minutes }` — shorten free time or a meal |
+| POST | `/api/creneau/:id` | `{ obtenu, heure }` — virtual-queue slot obtained |
+| POST | `/api/file/:id` | follow or mute a virtual queue's email alerts |
+| POST | `/api/reprise` | restart the day's schedule from a given time |
+| POST | `/api/jour` | `{ jour: 1 \| 2 }` — active day |
