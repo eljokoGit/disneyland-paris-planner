@@ -491,9 +491,12 @@ label { display: block; font-weight: 800; font-size: 0.95rem; margin-bottom: 5px
 .attente-chiffre.long    { background: var(--rouge); }
 .attente-chiffre.inconnu { background: var(--encre-2); }
 .attente-chiffre.off     { background: var(--trait-fin); color: var(--encre-2); }
+/* Panne : arrêt momentané, ni fermeture ni attente. Un panneau jaune, encre noire. */
+.attente-chiffre.panne   { background: var(--jaune); color: var(--encre); }
 
 .attente-nom { font-weight: 800; font-size: 1.02rem; }
 .attente-statut { font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
+.attente-statut.panne { color: var(--orange); }
 .attente-sr { font-size: 0.85rem; font-weight: 700; color: var(--bleu); margin-top: 2px; }
 .etiq-plan {
   display: inline-block; background: var(--encre); color: #fff; font-size: 0.65rem;
@@ -523,9 +526,11 @@ label { display: block; font-weight: 800; font-size: 0.95rem; margin-bottom: 5px
 .files-chiffre.long { background: var(--rouge); }
 .files-chiffre.inconnu { background: var(--encre-2); }
 .files-chiffre.off { background: var(--trait-fin); color: var(--encre-2); }
+.files-chiffre.panne { background: var(--jaune); color: var(--encre); }
 .files-nom { font-weight: 700; font-size: 1rem; }
 .files-note { display: block; font-size: 0.85rem; font-weight: 700; color: var(--encre-2); margin-top: 2px; }
 .files-note.danger { color: var(--rouge); }
+.files-note.panne { color: var(--orange); }
 .files-conseil {
   margin: 12px 14px 0; padding: 10px 12px; background: #fff2f4;
   border-radius: 6px; font-size: 0.95rem; font-weight: 700; color: #6b0012;

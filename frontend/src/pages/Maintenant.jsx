@@ -386,7 +386,7 @@ export default function Maintenant({ plan, etat, muter, notifier, maintenant, si
             {e.files.items.map((f) => (
               <div key={f.id} className="files-ligne">
                 <span className={'files-chiffre'
-                  + (f.inconnue ? ' inconnu' : !f.ouverte ? ' off'
+                  + (f.inconnue ? ' inconnu' : f.enPanne ? ' panne' : !f.ouverte ? ' off'
                   : f.attente == null ? ' inconnu' : f.attente <= 20 ? ' court' : f.attente <= 45 ? ' moyen' : ' long')}>
                   {f.inconnue ? '?' : f.enPanne ? '⚠' : !f.ouverte ? '✕' : f.attente == null ? '?' : f.attente + ' min'}
                 </span>
